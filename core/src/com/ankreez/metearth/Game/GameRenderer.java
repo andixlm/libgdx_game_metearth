@@ -1,9 +1,17 @@
 package com.ankreez.metearth.Game;
 
+import com.badlogic.gdx.graphics.OrthographicCamera;
+
 public class GameRenderer {
 
-    public GameRenderer() {
+    private GameWorld mGameWorld;
+    private OrthographicCamera mCamera;
 
+    public GameRenderer(GameWorld gameWorld) {
+        mGameWorld = gameWorld;
+
+        mCamera = new OrthographicCamera();
+        mCamera.setToOrtho(false, mGameWorld.getGameWidth(), mGameWorld.getGameHeight());
     }
 
     public void render(float delta) {

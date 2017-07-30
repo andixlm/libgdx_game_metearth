@@ -20,6 +20,8 @@ public abstract class MetEarthObject {
         mHeight = height;
     }
 
+    public abstract void update(float delta);
+
     public Vector2 getPosition() {
         return mPosition.cpy();
     }

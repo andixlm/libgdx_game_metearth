@@ -1,7 +1,6 @@
 package com.ankreez.metearth.Objects;
 
 import com.badlogic.gdx.math.Vector2;
-import com.sun.istack.internal.NotNull;
 
 public abstract class MetEarthObject {
 
@@ -14,7 +13,7 @@ public abstract class MetEarthObject {
         this(new Vector2(x, y), width, height);
     }
 
-    public MetEarthObject(@NotNull Vector2 position, float width, float height) {
+    public MetEarthObject(Vector2 position, float width, float height) {
         mPosition = new Vector2(position);
         mWidth = width;
         mHeight = height;
@@ -30,7 +29,7 @@ public abstract class MetEarthObject {
         mPosition.set(x, y);
     }
 
-    public void setPosition(@NotNull Vector2 position) {
+    public void setPosition(Vector2 position) {
         mPosition.set(position);
     }
 

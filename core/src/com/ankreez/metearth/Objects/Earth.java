@@ -1,7 +1,6 @@
 package com.ankreez.metearth.Objects;
 
 import com.badlogic.gdx.math.Vector2;
-import com.sun.istack.internal.NotNull;
 
 public class Earth extends MetEarthObject {
 
@@ -9,7 +8,7 @@ public class Earth extends MetEarthObject {
         super(x, y, width, height);
     }
 
-    public Earth(@NotNull Vector2 position, float width, float height) {
+    public Earth(Vector2 position, float width, float height) {
         super(position, width, height);
     }
 

@@ -15,7 +15,7 @@ public abstract class MetEarthObject {
     }
 
     public MetEarthObject(@NotNull Vector2 position, float width, float height) {
-        mPosition.set(position);
+        mPosition = new Vector2(position);
         mWidth = width;
         mHeight = height;
     }

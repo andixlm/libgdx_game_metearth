@@ -6,4 +6,8 @@ public class GameRenderer {
 
     }
 
+    public void render(float delta) {
+
+    }
+
 }

@@ -17,8 +17,8 @@ public class GameScreen extends MetEarthScreen {
     public GameScreen(Game game) {
         super(game);
 
-        mGameWorld = new GameWorld();
-        mGameRenderer = new GameRenderer();
+        mGameWorld = new GameWorld(WORLD_WIDTH, WORLD_HEIGHT);
+        mGameRenderer = new GameRenderer(mGameWorld);
     }
 
     @Override

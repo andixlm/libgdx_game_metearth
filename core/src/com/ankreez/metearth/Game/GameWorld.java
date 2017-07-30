@@ -23,11 +23,11 @@ public class GameWorld {
 
     }
 
-    public float getGameWidth() {
+    public float getWorldWidth() {
         return mWorldWidth;
     }
 
-    public float getGameHeight() {
+    public float getWorldHeight() {
         return mWorldHeight;
     }
 

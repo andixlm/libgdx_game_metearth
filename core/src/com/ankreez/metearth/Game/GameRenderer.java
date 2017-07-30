@@ -11,7 +11,7 @@ public class GameRenderer {
         mGameWorld = gameWorld;
 
         mCamera = new OrthographicCamera();
-        mCamera.setToOrtho(false, mGameWorld.getGameWidth(), mGameWorld.getGameHeight());
+        mCamera.setToOrtho(false, mGameWorld.getWorldWidth(), mGameWorld.getWorldHeight());
     }
 
     public void render(float delta) {

@@ -6,4 +6,8 @@ public class GameWorld {
 
     }
 
+    public void update(float delta) {
+
+    }
+
 }

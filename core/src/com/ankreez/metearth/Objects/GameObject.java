@@ -9,6 +9,13 @@ public abstract class GameObject {
     private float mWidth;
     private float mHeight;
 
+    public GameObject() {
+        mPosition = new Vector2();
+
+        mWidth = 0;
+        mHeight = 0;
+    }
+
     public GameObject(float x, float y, float width, float height) {
         this(new Vector2(x, y), width, height);
     }

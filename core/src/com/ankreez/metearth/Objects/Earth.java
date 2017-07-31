@@ -2,7 +2,7 @@ package com.ankreez.metearth.Objects;
 
 import com.badlogic.gdx.math.Vector2;
 
-public class Earth extends MetEarthObject {
+public class Earth extends GameObject {
 
     public Earth(float x, float y, float width, float height) {
         super(x, y, width, height);

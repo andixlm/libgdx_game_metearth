@@ -2,18 +2,18 @@ package com.ankreez.metearth.Objects;
 
 import com.badlogic.gdx.math.Vector2;
 
-public abstract class MetEarthObject {
+public abstract class GameObject {
 
     private Vector2 mPosition;
 
     private float mWidth;
     private float mHeight;
 
-    public MetEarthObject(float x, float y, float width, float height) {
+    public GameObject(float x, float y, float width, float height) {
         this(new Vector2(x, y), width, height);
     }
 
-    public MetEarthObject(Vector2 position, float width, float height) {
+    public GameObject(Vector2 position, float width, float height) {
         mPosition = new Vector2(position);
         mWidth = width;
         mHeight = height;

@@ -2,7 +2,7 @@ package com.ankreez.metearth.Objects;
 
 import com.badlogic.gdx.math.Vector2;
 
-public abstract class MovableObject extends MetEarthObject {
+public abstract class MovableObject extends GameObject {
 
     private Vector2 mVelocity;
     private Vector2 mAcceleration;

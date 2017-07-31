@@ -4,6 +4,18 @@ import com.badlogic.gdx.math.Vector2;
 
 public class Earth extends GameObject {
 
+    public Earth() {
+        super();
+    }
+
+    public Earth(float x, float y) {
+        super(x, y);
+    }
+
+    public Earth(Vector2 position) {
+        super(position);
+    }
+
     public Earth(float x, float y, float width, float height) {
         super(x, y, width, height);
     }

@@ -7,15 +7,31 @@ public abstract class DynamicGameObject extends GameObject {
     private Vector2 mVelocity;
     private Vector2 mAcceleration;
 
-    public DynamicGameObject(float x, float y, Vector2 velocity, float width, float height) {
-        this(new Vector2(x, y), velocity, width, height);
+    public DynamicGameObject() {
+        super();
+
+        mVelocity = new Vector2();
+        mAcceleration = new Vector2();
     }
 
-    public DynamicGameObject(Vector2 position, Vector2 velocity, float width, float height) {
-        super(position, width, height);
+    public DynamicGameObject(float x, float y) {
+        this();
 
-        mVelocity = new Vector2(velocity);
-        mAcceleration = new Vector2();
+        setPosition(x, y);
+    }
+
+    public DynamicGameObject(Vector2 position) {
+        this(position.x, position.y);
+    }
+
+    public DynamicGameObject(float positionX, float positionY, float velocityX, float velocityY) {
+        this(positionX, positionY);
+
+        setVelocity(velocityX, velocityY);
+    }
+
+    public DynamicGameObject(Vector2 position, Vector2 velocity) {
+        this(position.x, position.y, velocity.x, velocity.y);
     }
 
     public Vector2 getVelocity() {

@@ -12,18 +12,29 @@ public abstract class GameObject {
     public GameObject() {
         mPosition = new Vector2();
 
-        mWidth = 0;
-        mHeight = 0;
+        setWidth(0.0f);
+        setHeight(0.0f);
+    }
+
+    public GameObject(float x, float y) {
+        this();
+
+        setPosition(x, y);
+    }
+
+    public GameObject(Vector2 position) {
+        this(position.x, position.y);
     }
 
     public GameObject(float x, float y, float width, float height) {
-        this(new Vector2(x, y), width, height);
+        this(x, y);
+
+        setWidth(width);
+        setHeight(height);
     }
 
     public GameObject(Vector2 position, float width, float height) {
-        mPosition = new Vector2(position);
-        mWidth = width;
-        mHeight = height;
+        this(position.x, position.y, width, height);
     }
 
     public abstract void update(float delta);

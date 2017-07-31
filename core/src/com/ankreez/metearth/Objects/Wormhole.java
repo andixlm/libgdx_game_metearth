@@ -55,18 +55,12 @@ public class Wormhole implements Iterable<Portal> {
 
         @Override
         public boolean hasNext() {
-            return mCurrentPortalId != BETA_PORTAL_ID;
+            return mCurrentPortalId <= BETA_PORTAL_ID;
         }
 
         @Override
         public Portal next() {
-            if (mCurrentPortalId == ALPHA_PORTAL_ID) {
-                mCurrentPortalId = BETA_PORTAL_ID;
-
-                return mPortals[ALPHA_PORTAL_ID];
-            } else {
-                return mPortals[BETA_PORTAL_ID];
-            }
+            return mPortals[mCurrentPortalId++];
         }
 
         @Override

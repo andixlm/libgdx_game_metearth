@@ -22,12 +22,20 @@ public abstract class DynamicGameObject extends GameObject {
         return mVelocity.cpy();
     }
 
+    public void setVelocity(float x, float y) {
+        mVelocity.set(x, y);
+    }
+
     public void setVelocity(Vector2 velocity) {
         mVelocity.set(velocity);
     }
 
     public Vector2 getAcceleration() {
         return mAcceleration.cpy();
+    }
+
+    public void setAcceleration(float x, float y) {
+        mAcceleration.set(x, y);
     }
 
     public void setAcceleration(Vector2 acceleration) {

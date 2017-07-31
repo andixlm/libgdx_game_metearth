@@ -2,16 +2,16 @@ package com.ankreez.metearth.Objects;
 
 import com.badlogic.gdx.math.Vector2;
 
-public abstract class MovableObject extends GameObject {
+public abstract class DynamicGameObject extends GameObject {
 
     private Vector2 mVelocity;
     private Vector2 mAcceleration;
 
-    public MovableObject(float x, float y, Vector2 velocity, float width, float height) {
+    public DynamicGameObject(float x, float y, Vector2 velocity, float width, float height) {
         this(new Vector2(x, y), velocity, width, height);
     }
 
-    public MovableObject(Vector2 position, Vector2 velocity, float width, float height) {
+    public DynamicGameObject(Vector2 position, Vector2 velocity, float width, float height) {
         super(position, width, height);
 
         mVelocity = new Vector2(velocity);

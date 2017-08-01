@@ -3,11 +3,11 @@ package com.ankreez.metearth.Screens;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 
-public abstract class MetEarthScreen implements Screen {
+public abstract class SimpleScreen implements Screen {
 
     protected Game mGame;
 
-    public MetEarthScreen(Game game) {
+    public SimpleScreen(Game game) {
         mGame = game;
     }
 

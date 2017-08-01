@@ -5,7 +5,7 @@ import com.ankreez.metearth.Game.GameWorld;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 
-public class GameScreen extends MetEarthScreen {
+public class GameScreen extends SimpleScreen {
 
     private static final float ASPECT_RATIO = Gdx.graphics.getHeight() / Gdx.graphics.getWidth();
 

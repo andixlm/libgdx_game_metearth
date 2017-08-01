@@ -2,6 +2,7 @@ package com.ankreez.metearth.Screens;
 
 import com.ankreez.metearth.Game.GameRenderer;
 import com.ankreez.metearth.Game.GameWorld;
+import com.ankreez.metearth.Helpers.InputHelper;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 
@@ -21,6 +22,8 @@ public class GameScreen extends SimpleScreen {
 
         mGameWorld = new GameWorld(WORLD_WIDTH, WORLD_HEIGHT);
         mGameRenderer = new GameRenderer(mGameWorld);
+
+        Gdx.input.setInputProcessor(new InputHelper(mGameWorld, mGameRenderer));
     }
 
     @Override

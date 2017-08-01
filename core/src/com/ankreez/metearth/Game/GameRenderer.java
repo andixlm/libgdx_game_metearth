@@ -18,4 +18,20 @@ public class GameRenderer {
 
     }
 
+    public GameWorld getGameWorld() {
+        return mGameWorld;
+    }
+
+    public void setGameWorld(GameWorld gameWorld) {
+        mGameWorld = gameWorld;
+    }
+
+    public OrthographicCamera getCamera() {
+        return mCamera;
+    }
+
+    public void setCamera(OrthographicCamera camera) {
+        mCamera = camera;
+    }
+
 }

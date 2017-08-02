@@ -38,6 +38,8 @@ public class InputHelper implements InputProcessor {
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         mGameRenderer.getCamera().unproject(mWorldCoords.set((float) screenX, (float) screenY, 0.0f));
 
+        mGameWorld.getNextPortal().setPosition(mWorldCoords.x, mWorldCoords.y);
+
         return true;
     }
 

@@ -45,4 +45,8 @@ public class GameWorld {
         return mEarth;
     }
 
+    public Portal getNextPortal() {
+        return mWormhole.getNextPortal();
+    }
+
 }

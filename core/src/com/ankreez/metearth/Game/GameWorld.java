@@ -18,8 +18,9 @@ public class GameWorld {
 
         float earthWidth = mWorldWidth / 4.0f;
         float earthHeight = earthWidth;
-        mEarth = new Earth((mWorldWidth - earthWidth) / 2.0f, (mWorldHeight - earthHeight) / 2.0f,
-                earthWidth, earthHeight);
+        float earthPositionX = (mWorldWidth - earthWidth) / 2.0f;
+        float earthPositionY = (mWorldHeight - earthHeight) / 2.0f;
+        mEarth = new Earth(earthPositionX, earthPositionY, earthWidth, earthHeight);
 
         float portalRadius = earthWidth / 2.0f;
         float portalPositionX = (mWorldWidth - portalRadius) / 2.0f;

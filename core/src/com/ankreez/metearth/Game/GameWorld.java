@@ -45,6 +45,10 @@ public class GameWorld {
         return mEarth;
     }
 
+    public Wormhole getWormhole() {
+        return mWormhole;
+    }
+
     public Portal getNextPortal() {
         return mWormhole.getNextPortal();
     }

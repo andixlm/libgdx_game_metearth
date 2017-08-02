@@ -7,7 +7,6 @@ import com.badlogic.gdx.math.Vector3;
 
 public class InputHelper implements InputProcessor {
 
-    private Vector3 mScreenCoords;
     private Vector3 mWorldCoords;
 
     private GameWorld mGameWorld;
@@ -17,7 +16,6 @@ public class InputHelper implements InputProcessor {
         mGameWorld = gameWorld;
         mGameRenderer = gameRenderer;
 
-        mScreenCoords = new Vector3();
         mWorldCoords = new Vector3();
     }
 
@@ -38,8 +36,7 @@ public class InputHelper implements InputProcessor {
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        mWorldCoords = mGameRenderer.getCamera().unproject(
-                mScreenCoords.set((float) screenX, (float) screenY, 0.0f));
+        mGameRenderer.getCamera().unproject(mWorldCoords.set((float) screenX, (float) screenY, 0.0f));
 
         return true;
     }

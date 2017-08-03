@@ -30,7 +30,7 @@ public class Meteorite extends DynamicSimpleObject {
         if (sRandom.nextFloat() < DELIMITER) {
             if (sRandom.nextFloat() < DELIMITER) {
                 // Above screen.
-                setPosition(sRandom.nextFloat() * worldWidth, -getHeight());
+                setPosition(sRandom.nextFloat() * worldWidth, worldHeight + getHeight());
 
                 if (getX() / worldWidth < DELIMITER) {
                     setVelocity(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_MAX,
@@ -41,7 +41,7 @@ public class Meteorite extends DynamicSimpleObject {
                 }
             } else {
                 // Below screen.
-                setPosition(sRandom.nextFloat() * worldWidth, worldHeight + getHeight());
+                setPosition(sRandom.nextFloat() * worldWidth, -getHeight());
 
                 if (getX() / worldWidth < DELIMITER) {
                     setVelocity(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_MAX,

@@ -35,7 +35,7 @@ public abstract class DynamicSimpleObject extends SimpleObject {
     }
 
     public Vector2 getVelocity() {
-        return mVelocity.cpy();
+        return mVelocity;
     }
 
     public void setVelocity(float x, float y) {
@@ -47,7 +47,7 @@ public abstract class DynamicSimpleObject extends SimpleObject {
     }
 
     public Vector2 getAcceleration() {
-        return mAcceleration.cpy();
+        return mAcceleration;
     }
 
     public void setAcceleration(float x, float y) {

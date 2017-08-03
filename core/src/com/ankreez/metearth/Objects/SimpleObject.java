@@ -40,7 +40,7 @@ public abstract class SimpleObject {
     public abstract void update(float delta);
 
     public Vector2 getPosition() {
-        return mPosition.cpy();
+        return mPosition;
     }
 
     public void setPosition(float x, float y) {

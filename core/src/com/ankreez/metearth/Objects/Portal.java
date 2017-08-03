@@ -27,6 +27,15 @@ public class Portal extends SimpleObject {
         setPosition(x, y);
     }
 
+    public float getRadius() {
+        return getWidth();
+    }
+
+    public void setRadius(float radius) {
+        setWidth(radius);
+        setHeight(radius);
+    }
+
     public Portal getOutPortal() {
         return mOutPortal;
     }

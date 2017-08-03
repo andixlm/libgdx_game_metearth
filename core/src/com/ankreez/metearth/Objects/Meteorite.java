@@ -78,4 +78,13 @@ public class Meteorite extends DynamicSimpleObject {
         }
     }
 
+    public float getRadius() {
+        return getWidth();
+    }
+
+    public void setRadius(float radius) {
+        setWidth(radius);
+        setHeight(radius);
+    }
+
 }

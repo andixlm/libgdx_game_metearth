@@ -2,35 +2,35 @@ package com.ankreez.metearth.Objects;
 
 import com.badlogic.gdx.math.Vector2;
 
-public abstract class DynamicGameObject extends SimpleObject {
+public abstract class DynamicSimpleObject extends SimpleObject {
 
     private Vector2 mVelocity;
     private Vector2 mAcceleration;
 
-    public DynamicGameObject() {
+    public DynamicSimpleObject() {
         super();
 
         mVelocity = new Vector2();
         mAcceleration = new Vector2();
     }
 
-    public DynamicGameObject(float x, float y) {
+    public DynamicSimpleObject(float x, float y) {
         this();
 
         setPosition(x, y);
     }
 
-    public DynamicGameObject(Vector2 position) {
+    public DynamicSimpleObject(Vector2 position) {
         this(position.x, position.y);
     }
 
-    public DynamicGameObject(float positionX, float positionY, float velocityX, float velocityY) {
+    public DynamicSimpleObject(float positionX, float positionY, float velocityX, float velocityY) {
         this(positionX, positionY);
 
         setVelocity(velocityX, velocityY);
     }
 
-    public DynamicGameObject(Vector2 position, Vector2 velocity) {
+    public DynamicSimpleObject(Vector2 position, Vector2 velocity) {
         this(position.x, position.y, velocity.x, velocity.y);
     }
 

@@ -2,7 +2,7 @@ package com.ankreez.metearth.Objects;
 
 import java.util.Random;
 
-public class Meteorite extends DynamicGameObject {
+public class Meteorite extends DynamicSimpleObject {
 
     private static final float DELIMITER = 0.5f;
 

@@ -2,7 +2,7 @@ package com.ankreez.metearth.Objects;
 
 import com.badlogic.gdx.math.Vector2;
 
-public class Portal extends GameObject {
+public class Portal extends SimpleObject {
 
     private Portal mOutPortal;
 

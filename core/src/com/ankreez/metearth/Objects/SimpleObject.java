@@ -2,38 +2,38 @@ package com.ankreez.metearth.Objects;
 
 import com.badlogic.gdx.math.Vector2;
 
-public abstract class GameObject {
+public abstract class SimpleObject {
 
     private Vector2 mPosition;
 
     private float mWidth;
     private float mHeight;
 
-    public GameObject() {
+    public SimpleObject() {
         mPosition = new Vector2();
 
         setWidth(0.0f);
         setHeight(0.0f);
     }
 
-    public GameObject(float x, float y) {
+    public SimpleObject(float x, float y) {
         this();
 
         setPosition(x, y);
     }
 
-    public GameObject(Vector2 position) {
+    public SimpleObject(Vector2 position) {
         this(position.x, position.y);
     }
 
-    public GameObject(float x, float y, float width, float height) {
+    public SimpleObject(float x, float y, float width, float height) {
         this(x, y);
 
         setWidth(width);
         setHeight(height);
     }
 
-    public GameObject(Vector2 position, float width, float height) {
+    public SimpleObject(Vector2 position, float width, float height) {
         this(position.x, position.y, width, height);
     }
 

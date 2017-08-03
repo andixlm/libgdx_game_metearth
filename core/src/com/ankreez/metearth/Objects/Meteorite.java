@@ -22,7 +22,7 @@ public class Meteorite extends DynamicSimpleObject {
 
     @Override
     public void update(float delta) {
-        getPosition().add(getVelocity().scl(delta));
+        getPosition().add(getVelocity().cpy().scl(delta));
     }
 
     public void reset(float worldWidth, float worldHeight) {

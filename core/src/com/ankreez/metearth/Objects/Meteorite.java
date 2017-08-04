@@ -20,8 +20,8 @@ public class Meteorite extends DynamicSimpleObject {
     public Meteorite(float radius, float worldWidth, float worldHeight) {
         super();
 
-        setWidth(radius);
-        setHeight(radius);
+        setWidth(2.0f * radius);
+        setHeight(2.0f * radius);
 
         reset(worldWidth, worldHeight);
     }
@@ -93,12 +93,12 @@ public class Meteorite extends DynamicSimpleObject {
     }
 
     public float getRadius() {
-        return getWidth();
+        return getWidth() / 2.0f;
     }
 
     public void setRadius(float radius) {
-        setWidth(radius);
-        setHeight(radius);
+        setWidth(2.0f * radius);
+        setHeight(2.0f * radius);
     }
 
     public float getRotation() {

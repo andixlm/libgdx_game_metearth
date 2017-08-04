@@ -4,6 +4,7 @@ import com.ankreez.metearth.Game.GameRenderer;
 import com.ankreez.metearth.Game.GameWorld;
 import com.ankreez.metearth.Objects.Portal;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Vector3;
 
 public class InputHelper implements InputProcessor {
@@ -13,6 +14,8 @@ public class InputHelper implements InputProcessor {
     private GameWorld mGameWorld;
     private GameRenderer mGameRenderer;
 
+    private OrthographicCamera mCamera;
+
     private Portal mPortal;
     private float mPortalHalfWidth;
     private float mPortalHalfHeight;
@@ -20,6 +23,8 @@ public class InputHelper implements InputProcessor {
     public InputHelper(GameWorld gameWorld, GameRenderer gameRenderer) {
         mGameWorld = gameWorld;
         mGameRenderer = gameRenderer;
+
+        mCamera = mGameRenderer.getCamera();
 
         mWorldCoords = new Vector3();
 
@@ -45,7 +50,7 @@ public class InputHelper implements InputProcessor {
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        mGameRenderer.getCamera().unproject(mWorldCoords.set((float) screenX, (float) screenY, 0.0f));
+        mCamera.unproject(mWorldCoords.set((float) screenX, (float) screenY, 0.0f));
 
         mPortal.setPosition(mWorldCoords.x - mPortalHalfWidth, mWorldCoords.y - mPortalHalfHeight);
         mPortal = mGameWorld.getNextPortal();

@@ -9,7 +9,13 @@ public class Meteorite extends DynamicSimpleObject {
     private static final float VELOCITY_MIN = 5.0f;
     private static final float VELOCITY_MAX = 10.0f;
 
+    private static final float ROTATION_SPEED_MIN = 50.0f;
+    private static final float ROTATION_SPEED_MAX = 100.0f;
+
     private static final Random sRandom = new Random();
+
+    private float mRotation;
+    private float mRotationSpeed;
 
     public Meteorite(float radius, float worldWidth, float worldHeight) {
         super();
@@ -23,6 +29,11 @@ public class Meteorite extends DynamicSimpleObject {
     @Override
     public void update(float delta) {
         getPosition().add(getVelocity().cpy().scl(delta));
+
+        mRotation += delta * mRotationSpeed;
+        if (mRotation >= 360.0f) {
+            mRotation -= 360.0f;
+        }
     }
 
     public void reset(float worldWidth, float worldHeight) {
@@ -76,6 +87,9 @@ public class Meteorite extends DynamicSimpleObject {
                 }
             }
         }
+
+        mRotation = 0.0f;
+        mRotationSpeed = ROTATION_SPEED_MIN + sRandom.nextFloat() * ROTATION_SPEED_MAX;
     }
 
     public float getRadius() {
@@ -85,6 +99,10 @@ public class Meteorite extends DynamicSimpleObject {
     public void setRadius(float radius) {
         setWidth(radius);
         setHeight(radius);
+    }
+
+    public float getRotation() {
+        return mRotation;
     }
 
 }

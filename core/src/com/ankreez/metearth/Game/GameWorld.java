@@ -28,10 +28,10 @@ public class GameWorld {
         mEarth = new Earth(earthPositionX, earthPositionY, earthWidth, earthHeight);
 
         float portalRadius = earthWidth / 2.0f;
-        float portalPositionX = (mWorldWidth - portalRadius) / 2.0f;
-        float portalPositionY = (mWorldHeight - 2.0f * portalRadius) / 4.0f;
+        float portalPositionX = (mWorldWidth - 2.0f * portalRadius) / 2.0f;
+        float portalPositionY = (mWorldHeight - 4.0f * portalRadius) / 4.0f;
         mWormhole = new Wormhole(new Portal(portalPositionX, portalPositionY, portalRadius),
-                new Portal(portalPositionX, mWorldHeight - portalPositionY, portalRadius));
+                new Portal(portalPositionX, mWorldHeight - (portalPositionY + 2.0f * portalRadius), portalRadius));
 
         float meteoriteRadius = portalRadius;
         mMeteorites = new Array<Meteorite>(false, METEORITES_COUNT);

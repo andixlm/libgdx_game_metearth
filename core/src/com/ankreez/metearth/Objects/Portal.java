@@ -11,11 +11,11 @@ public class Portal extends SimpleObject {
     }
 
     public Portal(float x, float y, float radius) {
-        super(x, y, radius, radius);
+        super(x, y, 2.0f * radius, 2.0f * radius);
     }
 
     public Portal(Vector2 position, float radius) {
-        super(position, radius, radius);
+        super(position, 2.0f * radius, 2.0f * radius);
     }
 
     @Override
@@ -28,12 +28,12 @@ public class Portal extends SimpleObject {
     }
 
     public float getRadius() {
-        return getWidth();
+        return getWidth() / 2.0f;
     }
 
     public void setRadius(float radius) {
-        setWidth(radius);
-        setHeight(radius);
+        setWidth(2.0f * radius);
+        setHeight(2.0f * radius);
     }
 
     public Portal getOutPortal() {

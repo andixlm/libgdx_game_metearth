@@ -21,13 +21,13 @@ public class GameWorld {
         mWorldWidth = worldWidth;
         mWorldHeight = worldHeight;
 
-        float earthWidth = mWorldWidth / 4.0f;
+        float earthWidth = mWorldWidth / 2.5f;
         float earthHeight = earthWidth;
         float earthPositionX = (mWorldWidth - earthWidth) / 2.0f;
         float earthPositionY = (mWorldHeight - earthHeight) / 2.0f;
         mEarth = new Earth(earthPositionX, earthPositionY, earthWidth, earthHeight);
 
-        float portalRadius = earthWidth / 2.0f;
+        float portalRadius = (earthWidth / 2.0f) / 2.25f;
         float portalPositionX = (mWorldWidth - 2.0f * portalRadius) / 2.0f;
         float portalPositionY = (mWorldHeight - 4.0f * portalRadius) / 4.0f;
         mWormhole = new Wormhole(
@@ -37,7 +37,7 @@ public class GameWorld {
                         portalRadius)
         );
 
-        float meteoriteRadius = portalRadius;
+        float meteoriteRadius = portalRadius / 2.0f;
         mMeteorites = new Array<Meteorite>(false, METEORITES_COUNT);
         for (int count = 0; count < METEORITES_COUNT; ++count) {
             mMeteorites.add(new Meteorite(meteoriteRadius, mWorldWidth, mWorldHeight));

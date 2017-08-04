@@ -8,7 +8,7 @@ import com.badlogic.gdx.utils.Array;
 
 public class GameWorld {
 
-    private static final byte METEORITES_COUNT = 7;
+    private static final byte METEORITES_AMOUNT = 7;
 
     private float mWorldWidth;
     private float mWorldHeight;
@@ -38,8 +38,8 @@ public class GameWorld {
         );
 
         float meteoriteRadius = portalRadius / 2.0f;
-        mMeteorites = new Array<Meteorite>(false, METEORITES_COUNT);
-        for (int count = 0; count < METEORITES_COUNT; ++count) {
+        mMeteorites = new Array<Meteorite>(false, METEORITES_AMOUNT);
+        for (int count = 0; count < METEORITES_AMOUNT; ++count) {
             mMeteorites.add(new Meteorite(meteoriteRadius, mWorldWidth, mWorldHeight));
         }
     }

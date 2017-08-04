@@ -9,28 +9,28 @@ import com.badlogic.gdx.math.Vector3;
 
 public class InputHelper implements InputProcessor {
 
-    private Vector3 mWorldCoords;
-
     private GameWorld mGameWorld;
-    private GameRenderer mGameRenderer;
-
-    private OrthographicCamera mCamera;
 
     private Portal mPortal;
     private float mPortalHalfWidth;
     private float mPortalHalfHeight;
 
+    private GameRenderer mGameRenderer;
+    private OrthographicCamera mCamera;
+
+    private Vector3 mWorldCoords;
+
     public InputHelper(GameWorld gameWorld, GameRenderer gameRenderer) {
         mGameWorld = gameWorld;
-        mGameRenderer = gameRenderer;
-
-        mCamera = mGameRenderer.getCamera();
-
-        mWorldCoords = new Vector3();
 
         mPortal = mGameWorld.getNextPortal();
         mPortalHalfWidth = mPortal.getWidth() / 2.0f;
         mPortalHalfHeight = mPortal.getHeight() / 2.0f;
+
+        mGameRenderer = gameRenderer;
+        mCamera = mGameRenderer.getCamera();
+
+        mWorldCoords = new Vector3();
     }
 
     @Override

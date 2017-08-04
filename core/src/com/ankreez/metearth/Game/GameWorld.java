@@ -41,7 +41,9 @@ public class GameWorld {
     }
 
     public void update(float delta) {
-
+        for (Meteorite meteorite : mMeteorites) {
+            meteorite.update(delta);
+        }
     }
 
     public float getWorldWidth() {

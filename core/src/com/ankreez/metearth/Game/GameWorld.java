@@ -66,4 +66,8 @@ public class GameWorld {
         return mWormhole.getNextPortal();
     }
 
+    public Array<Meteorite> getMeteorites() {
+        return mMeteorites;
+    }
+
 }

@@ -1,5 +1,7 @@
 package com.ankreez.metearth.Objects;
 
+import com.badlogic.gdx.utils.TimeUtils;
+
 import java.util.Random;
 
 public class Meteorite extends DynamicSimpleObject {
@@ -12,7 +14,7 @@ public class Meteorite extends DynamicSimpleObject {
     private static final float ROTATION_SPEED_MIN = 50.0f;
     private static final float ROTATION_SPEED_MAX = 100.0f;
 
-    private static final Random sRandom = new Random();
+    private static final Random sRandom  = new Random(TimeUtils.millis());
 
     private float mRotation;
     private float mRotationSpeed;

@@ -47,6 +47,10 @@ public class GameWorld {
     public void update(float delta) {
         for (Meteorite meteorite : mMeteorites) {
             meteorite.update(delta);
+
+            if (meteorite.isOutOfScreen(mWorldWidth, mWorldHeight)) {
+                meteorite.reset(mWorldWidth, mWorldHeight);
+            }
         }
     }
 

@@ -6,8 +6,8 @@ public class Meteorite extends DynamicSimpleObject {
 
     private static final float DELIMITER = 0.5f;
 
-    private static final float VELOCITY_MIN = 5.0f;
-    private static final float VELOCITY_MAX = 10.0f;
+    private static final float VELOCITY_MIN = 10.0f;
+    private static final float VELOCITY_MAX = 20.0f;
 
     private static final float ROTATION_SPEED_MIN = 50.0f;
     private static final float ROTATION_SPEED_MAX = 100.0f;

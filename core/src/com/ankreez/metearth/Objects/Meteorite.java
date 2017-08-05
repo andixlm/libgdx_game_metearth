@@ -107,6 +107,10 @@ public class Meteorite extends DynamicSimpleObject {
         return mRotation;
     }
 
+    public void setRotation(float rotation) {
+        mRotation = rotation;
+    }
+
     public boolean isOutOfScreen(float worldWidth, float worldHeight) {
         return (getX() + getWidth() < 0) || (worldWidth < getX() - getWidth()) ||
                 (getY() + getHeight() < 0) || (worldHeight < getY() - getHeight());

@@ -28,8 +28,8 @@ public class GameWorld {
         mEarth = new Earth(earthPositionX, earthPositionY, earthWidth, earthHeight);
 
         float portalRadius = (earthWidth / 2.0f) / 2.25f;
-        float portalPositionX = (mWorldWidth - 2.0f * portalRadius) / 2.0f;
-        float portalPositionY = (mWorldHeight - 4.0f * portalRadius) / 4.0f;
+        float portalPositionX = mWorldWidth / 2.0f - portalRadius;
+        float portalPositionY = mWorldHeight / 4.0f - portalRadius;
         mWormhole = new Wormhole(
                 new Portal(portalPositionX, portalPositionY,
                         portalRadius),

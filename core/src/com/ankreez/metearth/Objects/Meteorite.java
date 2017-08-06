@@ -2,6 +2,7 @@ package com.ankreez.metearth.Objects;
 
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Intersector;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.TimeUtils;
 
 import java.util.Random;
@@ -109,6 +110,19 @@ public class Meteorite extends DynamicSimpleObject {
         }
 
         return false;
+    }
+
+    public Portal collides(Wormhole wormhole) {
+        for (Portal portal : wormhole) {
+            if (portal.getX() < getX() + getWidth() && getX() < portal.getX() + portal.getWidth() &&
+                    portal.getY() < getY() + getHeight() && getY() < portal.getY() + portal.getHeight()) {
+                if (Intersector.overlaps(mBounds, portal.getBounds())) {
+                    return portal;
+                }
+            }
+        }
+
+        return null;
     }
 
     public float getRadius() {

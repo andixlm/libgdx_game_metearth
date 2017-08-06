@@ -13,9 +13,11 @@ public class Meteorite extends DynamicSimpleObject {
 
     private static final float VELOCITY_MIN = 10.0f;
     private static final float VELOCITY_MAX = 20.0f;
+    private static final float VELOCITY_DELTA = VELOCITY_MAX - VELOCITY_MIN;
 
     private static final float ROTATION_SPEED_MIN = 50.0f;
     private static final float ROTATION_SPEED_MAX = 100.0f;
+    private static final float ROTATION_SPEED_DELTA = ROTATION_SPEED_MAX - ROTATION_SPEED_MIN;
 
     private static final Random sRandom  = new Random(TimeUtils.millis());
 
@@ -59,22 +61,22 @@ public class Meteorite extends DynamicSimpleObject {
                 setPosition(sRandom.nextFloat() * worldWidth, worldHeight + getHeight());
 
                 if (getX() / worldWidth < DELIMITER) {
-                    setVelocity(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_MAX,
-                            -(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_MAX));
+                    setVelocity(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA,
+                            -(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA));
                 } else {
-                    setVelocity(-(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_MAX),
-                            -(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_MAX));
+                    setVelocity(-(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA),
+                            -(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA));
                 }
             } else {
                 // Below screen.
                 setPosition(sRandom.nextFloat() * worldWidth, -getHeight());
 
                 if (getX() / worldWidth < DELIMITER) {
-                    setVelocity(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_MAX,
-                            VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_MAX);
+                    setVelocity(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA,
+                            VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA);
                 } else {
-                    setVelocity(-(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_MAX),
-                            VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_MAX);
+                    setVelocity(-(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA),
+                            VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA);
                 }
             }
         } else {
@@ -83,28 +85,28 @@ public class Meteorite extends DynamicSimpleObject {
                 setPosition(-getWidth(), sRandom.nextFloat() * worldHeight);
 
                 if (getY() / worldHeight < DELIMITER) {
-                    setVelocity(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_MAX,
-                            VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_MAX);
+                    setVelocity(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA,
+                            VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA);
                 } else {
-                    setVelocity(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_MAX,
-                            -(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_MAX));
+                    setVelocity(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA,
+                            -(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA));
                 }
             } else {
                 // To the right of screen.
                 setPosition(worldWidth + getWidth(), sRandom.nextFloat() * worldHeight);
 
                 if (getY() / worldHeight < DELIMITER) {
-                    setVelocity(-(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_MAX),
-                            VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_MAX);
+                    setVelocity(-(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA),
+                            VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA);
                 } else {
-                    setVelocity(-(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_MAX),
-                            -(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_MAX));
+                    setVelocity(-(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA),
+                            -(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA));
                 }
             }
         }
 
         mRotation = 0.0f;
-        mRotationSpeed = ROTATION_SPEED_MIN + sRandom.nextFloat() * ROTATION_SPEED_MAX;
+        mRotationSpeed = ROTATION_SPEED_MIN + sRandom.nextFloat() * ROTATION_SPEED_DELTA;
 
         mBounds = new Circle(getX() + getRadius(), getY() + getRadius(), getRadius());
     }

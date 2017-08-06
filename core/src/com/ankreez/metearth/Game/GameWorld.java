@@ -9,7 +9,7 @@ import com.badlogic.gdx.utils.Array;
 
 public class GameWorld {
 
-    private static final byte METEORITES_AMOUNT = 7;
+    private static final byte METEORITES_AMOUNT = 5;
 
     private float mWorldWidth;
     private float mWorldHeight;

@@ -152,6 +152,10 @@ public class Meteorite extends DynamicSimpleObject {
         return mBounds;
     }
 
+    public boolean isMoving() {
+        return getVelocity().x != 0.0f && getVelocity().y != 0.0f;
+    }
+
     public boolean isOutOfScreen(float worldWidth, float worldHeight) {
         return (getX() + getWidth() < 0) || (worldWidth < getX() - getWidth()) ||
                 (getY() + getHeight() < 0) || (worldHeight < getY() - getHeight());

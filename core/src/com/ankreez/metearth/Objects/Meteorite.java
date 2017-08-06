@@ -47,6 +47,8 @@ public class Meteorite extends DynamicSimpleObject {
 
     public void stop() {
         setVelocity(0.0f, 0.0f);
+
+        mRotationSpeed = 0.0f;
     }
 
     public void reset(float worldWidth, float worldHeight) {

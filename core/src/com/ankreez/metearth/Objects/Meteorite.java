@@ -45,6 +45,10 @@ public class Meteorite extends DynamicSimpleObject {
         }
     }
 
+    public void stop() {
+        setVelocity(0.0f, 0.0f);
+    }
+
     public void reset(float worldWidth, float worldHeight) {
         // Generate random out of screen position.
         if (sRandom.nextFloat() < DELIMITER) {

@@ -11,7 +11,7 @@ public class Portal extends SimpleObject {
     }
 
     public Portal(Vector2 position, float radius) {
-        super(position, 2.0f * radius, 2.0f * radius);
+        this(position.x, position.y, radius);
     }
 
     @Override

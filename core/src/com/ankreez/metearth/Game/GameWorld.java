@@ -46,9 +46,9 @@ public class GameWorld {
 
     public void update(float delta) {
         for (Meteorite meteorite : mMeteorites) {
-            meteorite.update(delta);
-
             if (meteorite.isMoving()) {
+                meteorite.update(delta);
+
                 Portal portalCollided = meteorite.collides(mWormhole);
                 if (portalCollided != null) {
                     Portal outPortal = portalCollided.getOutPortal();
@@ -57,10 +57,10 @@ public class GameWorld {
                 } else if (meteorite.collides(mEarth)) {
                     meteorite.stop();
                 }
-            }
 
-            if (meteorite.isOutOfScreen(mWorldWidth, mWorldHeight)) {
-                meteorite.reset(mWorldWidth, mWorldHeight);
+                if (meteorite.isOutOfScreen(mWorldWidth, mWorldHeight)) {
+                    meteorite.reset(mWorldWidth, mWorldHeight);
+                }
             }
         }
     }

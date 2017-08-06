@@ -1,6 +1,7 @@
 package com.ankreez.metearth.Objects;
 
 import com.badlogic.gdx.math.Circle;
+import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.utils.TimeUtils;
 
 import java.util.Random;
@@ -99,6 +100,15 @@ public class Meteorite extends DynamicSimpleObject {
         mRotationSpeed = ROTATION_SPEED_MIN + sRandom.nextFloat() * ROTATION_SPEED_MAX;
 
         mBounds = new Circle(getX() + getRadius(), getY() + getRadius(), getRadius());
+    }
+
+    public boolean collides(Earth earth) {
+        if (earth.getX() < getX() + getWidth() && getX() < earth.getX() + earth.getWidth() &&
+                earth.getY() < getY() + getHeight() && getY() < earth.getY() + earth.getHeight()) {
+            return Intersector.overlaps(mBounds, earth.getBounds());
+        }
+
+        return false;
     }
 
     public float getRadius() {

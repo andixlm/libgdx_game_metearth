@@ -1,5 +1,6 @@
 package com.ankreez.metearth.Objects;
 
+import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.utils.TimeUtils;
 
 import java.util.Random;
@@ -19,6 +20,8 @@ public class Meteorite extends DynamicSimpleObject {
     private float mRotation;
     private float mRotationSpeed;
 
+    private Circle mBounds;
+
     public Meteorite(float radius, float worldWidth, float worldHeight) {
         super();
 
@@ -31,6 +34,8 @@ public class Meteorite extends DynamicSimpleObject {
     @Override
     public void update(float delta) {
         getPosition().add(getVelocity().cpy().scl(delta));
+
+        mBounds.setPosition(getX() + getRadius(), getY() + getRadius());
 
         mRotation += delta * mRotationSpeed;
         if (mRotation >= 360.0f) {
@@ -92,6 +97,8 @@ public class Meteorite extends DynamicSimpleObject {
 
         mRotation = 0.0f;
         mRotationSpeed = ROTATION_SPEED_MIN + sRandom.nextFloat() * ROTATION_SPEED_MAX;
+
+        mBounds = new Circle(getX() + getRadius(), getY() + getRadius(), getRadius());
     }
 
     public float getRadius() {
@@ -109,6 +116,10 @@ public class Meteorite extends DynamicSimpleObject {
 
     public void setRotation(float rotation) {
         mRotation = rotation;
+    }
+
+    public Circle getBounds() {
+        return mBounds;
     }
 
     public boolean isOutOfScreen(float worldWidth, float worldHeight) {

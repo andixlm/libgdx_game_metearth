@@ -6,10 +6,6 @@ public class Portal extends SimpleObject {
 
     private Portal mOutPortal;
 
-    public Portal() {
-        super();
-    }
-
     public Portal(float x, float y, float radius) {
         super(x, y, 2.0f * radius, 2.0f * radius);
     }

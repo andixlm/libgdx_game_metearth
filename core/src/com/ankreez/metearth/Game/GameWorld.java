@@ -4,6 +4,7 @@ import com.ankreez.metearth.Objects.Earth;
 import com.ankreez.metearth.Objects.Meteorite;
 import com.ankreez.metearth.Objects.Portal;
 import com.ankreez.metearth.Objects.Wormhole;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 
 public class GameWorld {
@@ -52,8 +53,16 @@ public class GameWorld {
                 Portal portalCollided = meteorite.collides(mWormhole);
                 if (portalCollided != null) {
                     Portal outPortal = portalCollided.getOutPortal();
+                    Rectangle outBounds = outPortal.getBounds();
 
-                    // TODO: Move meteorite.
+                    float outX = outPortal.getX() + outPortal.getRadius() - meteorite.getRadius() +
+                            Math.signum(meteorite.getVelocity().x) *
+                                    (meteorite.getRadius() + outBounds.getWidth() / 2.0f);
+                    float outY = outPortal.getY() + outPortal.getRadius() - meteorite.getRadius() +
+                            Math.signum(meteorite.getVelocity().y) *
+                                    (meteorite.getRadius() + outBounds.getHeight() / 2.0f);
+
+                    meteorite.setPosition(outX, outY);
                 } else if (meteorite.collides(mEarth)) {
                     meteorite.stop();
                 }

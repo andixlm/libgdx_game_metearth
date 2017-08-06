@@ -48,6 +48,17 @@ public class GameWorld {
         for (Meteorite meteorite : mMeteorites) {
             meteorite.update(delta);
 
+            if (meteorite.isMoving()) {
+                Portal portalCollided = meteorite.collides(mWormhole);
+                if (portalCollided != null) {
+                    Portal outPortal = portalCollided.getOutPortal();
+
+                    // TODO: Move meteorite.
+                } else if (meteorite.collides(mEarth)) {
+                    meteorite.stop();
+                }
+            }
+
             if (meteorite.isOutOfScreen(mWorldWidth, mWorldHeight)) {
                 meteorite.reset(mWorldWidth, mWorldHeight);
             }

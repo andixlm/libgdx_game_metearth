@@ -7,18 +7,6 @@ public class Earth extends SimpleObject {
 
     private Circle mBounds;
 
-    public Earth() {
-        super();
-    }
-
-    public Earth(float x, float y) {
-        super(x, y);
-    }
-
-    public Earth(Vector2 position) {
-        super(position);
-    }
-
     public Earth(float x, float y, float width, float height) {
         super(x, y, width, height);
 
@@ -26,7 +14,7 @@ public class Earth extends SimpleObject {
     }
 
     public Earth(Vector2 position, float width, float height) {
-        super(position, width, height);
+        this(position.x, position.y, width, height);
     }
 
     @Override

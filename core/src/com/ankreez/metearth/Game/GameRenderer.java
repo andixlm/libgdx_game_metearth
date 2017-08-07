@@ -53,6 +53,23 @@ public class GameRenderer {
         mSpriteRenderer.setProjectionMatrix(mCamera.combined);
     }
 
+    private void initScore() {
+        mScore = -1;
+        mScoreText = "";
+    }
+
+    private void initObjects() {
+        mEarth = mGameWorld.getEarth();
+        mWormhole = mGameWorld.getWormhole();
+        mMeteorites = mGameWorld.getMeteorites();
+    }
+
+    private void initAssets() {
+        mEarthTexture = AssetHelper.sEarthTexture;
+        mPortalTexture = AssetHelper.sPortalTexture;
+        mMeteoriteTexture = AssetHelper.sMeteoriteTexture;
+    }
+
     public void render(float delta) {
         updateScore();
 
@@ -85,11 +102,6 @@ public class GameRenderer {
         mSpriteRenderer.end();
     }
 
-    private void initScore() {
-        mScore = -1;
-        mScoreText = "";
-    }
-
     private void updateScore() {
         short currentScore = mGameWorld.getScore();
 
@@ -97,18 +109,6 @@ public class GameRenderer {
             mScore = currentScore;
             mScoreText = String.valueOf(mScore);
         }
-    }
-
-    private void initObjects() {
-        mEarth = mGameWorld.getEarth();
-        mWormhole = mGameWorld.getWormhole();
-        mMeteorites = mGameWorld.getMeteorites();
-    }
-
-    private void initAssets() {
-        mEarthTexture = AssetHelper.sEarthTexture;
-        mPortalTexture = AssetHelper.sPortalTexture;
-        mMeteoriteTexture = AssetHelper.sMeteoriteTexture;
     }
 
     public GameWorld getGameWorld() {

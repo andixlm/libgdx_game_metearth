@@ -9,11 +9,14 @@ import com.badlogic.gdx.utils.Array;
 
 public class GameWorld {
 
+    public enum GameState { GAME_READY, GAME_RUNNING, GAME_OVER }
+
     private static final byte METEORITES_AMOUNT = 5;
 
     private float mWorldWidth;
     private float mWorldHeight;
 
+    private GameState mState;
     private short mScore;
 
     private Earth mEarth;
@@ -47,9 +50,32 @@ public class GameWorld {
         for (int count = 0; count < METEORITES_AMOUNT; ++count) {
             mMeteorites.add(new Meteorite(meteoriteRadius, mWorldWidth, mWorldHeight));
         }
+
+        // TODO: First game state must be READY.
+        startGame();
     }
 
     public void update(float delta) {
+        switch (mState) {
+            case GAME_READY:
+                updateOnGameReady(delta);
+                break;
+
+            case GAME_RUNNING:
+                updateOnGameRunning(delta);
+                break;
+
+            case GAME_OVER:
+                updateOnGameOver(delta);
+                break;
+        }
+    }
+
+    private void updateOnGameReady(float delta) {
+
+    }
+
+    private void updateOnGameRunning(float delta) {
         for (Meteorite meteorite : mMeteorites) {
             if (meteorite.isMoving()) {
                 meteorite.update(delta);
@@ -77,7 +103,7 @@ public class GameWorld {
                         increaseScore();
                     }
                 } else if (meteorite.collides(mEarth)) {
-                    meteorite.stop();
+                    stopGame();
                 }
 
                 if (meteorite.isOutOfScreen(mWorldWidth, mWorldHeight)) {
@@ -85,6 +111,30 @@ public class GameWorld {
                 }
             }
         }
+    }
+
+    private void updateOnGameOver(float delta) {
+
+    }
+
+    public boolean isGameReady() {
+        return mState == GameState.GAME_READY;
+    }
+
+    public void startGame() {
+        mState = GameState.GAME_RUNNING;
+    }
+
+    public boolean isGameRunning() {
+        return mState == GameState.GAME_RUNNING;
+    }
+
+    public void stopGame() {
+        mState = GameState.GAME_OVER;
+    }
+
+    public boolean isGameOver() {
+        return mState == GameState.GAME_OVER;
     }
 
     public void increaseScore() {

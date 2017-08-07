@@ -14,7 +14,7 @@ import com.badlogic.gdx.utils.Array;
 
 public class GameRenderer {
 
-    private static float MARGIN = 5.0f;
+    private static float MARGIN = 10.0f;
 
     private GameWorld mGameWorld;
 

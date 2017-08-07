@@ -14,6 +14,8 @@ public class GameWorld {
     private float mWorldWidth;
     private float mWorldHeight;
 
+    private short mScore;
+
     private Earth mEarth;
     private Wormhole mWormhole;
     private Array<Meteorite> mMeteorites;
@@ -21,6 +23,8 @@ public class GameWorld {
     public GameWorld(float worldWidth, float worldHeight) {
         mWorldWidth = worldWidth;
         mWorldHeight = worldHeight;
+
+        mScore = 0;
 
         float earthWidth = mWorldWidth / 2.5f;
         float earthHeight = earthWidth;
@@ -74,12 +78,24 @@ public class GameWorld {
         }
     }
 
+    public void increaseScore() {
+        ++mScore;
+    }
+
     public float getWorldWidth() {
         return mWorldWidth;
     }
 
     public float getWorldHeight() {
         return mWorldHeight;
+    }
+
+    public short getScore() {
+        return mScore;
+    }
+
+    public void setScore(short score) {
+        mScore = score > 0 ? score : 0;
     }
 
     public Earth getEarth() {

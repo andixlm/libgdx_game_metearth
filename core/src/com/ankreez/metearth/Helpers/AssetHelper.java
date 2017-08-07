@@ -7,6 +7,9 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class AssetHelper {
 
+    private static final String TEXTURE_ATLAS_NAME = "TextureAtlas";
+    private static final String TEXTURE_ATLAS_PATH = "image/" + TEXTURE_ATLAS_NAME + ".png";
+
     private static final String FONT_NAME = "PressStart2P";
     private static final String FONT_PATH = "font/" + FONT_NAME + ".fnt";
 
@@ -23,7 +26,7 @@ public class AssetHelper {
     public static BitmapFont sFont;
 
     public static void load() {
-        sTextureAtlas = new Texture(Gdx.files.internal("image/TextureAtlas.png"));
+        sTextureAtlas = new Texture(Gdx.files.internal(TEXTURE_ATLAS_PATH));
         sTextureAtlas.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
 
         sEarthTexture = new TextureRegion(sTextureAtlas, 0, 0, 64, 64);

@@ -18,6 +18,9 @@ public class GameRenderer {
 
     private GameWorld mGameWorld;
 
+    private float mWorldWidth;
+    private float mWorldHeight;
+
     private short mScore;
     private String mScoreText;
 
@@ -36,12 +39,15 @@ public class GameRenderer {
     public GameRenderer(GameWorld gameWorld) {
         mGameWorld = gameWorld;
 
+        mWorldWidth = mGameWorld.getWorldWidth();
+        mWorldHeight = mGameWorld.getWorldHeight();
+
         initScore();
         initObjects();
         initAssets();
 
         mCamera = new OrthographicCamera();
-        mCamera.setToOrtho(false, mGameWorld.getWorldWidth(), mGameWorld.getWorldHeight());
+        mCamera.setToOrtho(false, mWorldWidth, mWorldHeight);
 
         mSpriteRenderer = new SpriteBatch();
         mSpriteRenderer.setProjectionMatrix(mCamera.combined);
@@ -74,8 +80,7 @@ public class GameRenderer {
         }
 
         AssetHelper.sFont.draw(mSpriteRenderer, mScoreText,
-                (mGameWorld.getWorldWidth() - 6.0f * mScoreText.length()) / 2.0f,
-                mGameWorld.getWorldHeight() - MARGIN);
+                (mWorldWidth - 6.0f * mScoreText.length()) / 2.0f, mWorldHeight - MARGIN);
 
         mSpriteRenderer.end();
     }

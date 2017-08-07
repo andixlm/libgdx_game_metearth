@@ -29,6 +29,13 @@ public class GameWorld {
 
         mScore = 0;
 
+        initObjects();
+
+        // TODO: First game state must be READY.
+        startGame();
+    }
+
+    private void initObjects() {
         float earthWidth = mWorldWidth / 2.5f;
         float earthHeight = earthWidth;
         float earthPositionX = (mWorldWidth - earthWidth) / 2.0f;
@@ -50,9 +57,6 @@ public class GameWorld {
         for (int count = 0; count < METEORITES_AMOUNT; ++count) {
             mMeteorites.add(new Meteorite(meteoriteRadius, mWorldWidth, mWorldHeight));
         }
-
-        // TODO: First game state must be READY.
-        startGame();
     }
 
     public void update(float delta) {

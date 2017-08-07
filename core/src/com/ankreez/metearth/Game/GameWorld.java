@@ -67,6 +67,15 @@ public class GameWorld {
                                     (meteorite.getRadius() + outBounds.getHeight() / 2.0f);
 
                     meteorite.setPosition(outX, outY);
+
+                    // Portals shouldn't be near to each other to count score.
+                    // Condition is inverted overlapping.
+                    if (portalCollided.getX() >= outPortal.getX() + outPortal.getWidth() ||
+                            outPortal.getX() >= portalCollided.getX() + portalCollided.getWidth() ||
+                            portalCollided.getY() >= outPortal.getY() + outPortal.getHeight() ||
+                            outPortal.getY() >= portalCollided.getY() + portalCollided.getHeight()) {
+                        increaseScore();
+                    }
                 } else if (meteorite.collides(mEarth)) {
                     meteorite.stop();
                 }

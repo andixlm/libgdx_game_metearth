@@ -14,7 +14,12 @@ import com.badlogic.gdx.utils.Array;
 
 public class GameRenderer {
 
+    private static float MARGIN = 5.0f;
+
     private GameWorld mGameWorld;
+
+    private short mScore;
+    private String mScoreText;
 
     private Earth mEarth;
     private Wormhole mWormhole;
@@ -31,6 +36,7 @@ public class GameRenderer {
     public GameRenderer(GameWorld gameWorld) {
         mGameWorld = gameWorld;
 
+        initScore();
         initObjects();
         initAssets();
 
@@ -42,6 +48,8 @@ public class GameRenderer {
     }
 
     public void render(float delta) {
+        updateScore();
+
         Gdx.gl.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
@@ -65,7 +73,25 @@ public class GameRenderer {
                     1.0f, 1.0f, meteorite.getRotation());
         }
 
+        AssetHelper.sFont.draw(mSpriteRenderer, mScoreText,
+                (mGameWorld.getWorldWidth() - 6.0f * mScoreText.length()) / 2.0f,
+                mGameWorld.getWorldHeight() - MARGIN);
+
         mSpriteRenderer.end();
+    }
+
+    private void initScore() {
+        mScore = -1;
+        mScoreText = "";
+    }
+
+    private void updateScore() {
+        short currentScore = mGameWorld.getScore();
+
+        if (mScore != currentScore) {
+            mScore = currentScore;
+            mScoreText = String.valueOf(mScore);
+        }
     }
 
     private void initObjects() {

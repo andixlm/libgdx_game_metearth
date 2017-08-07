@@ -8,10 +8,10 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 public class AssetHelper {
 
     private static final String TEXTURE_ATLAS_NAME = "TextureAtlas";
-    private static final String TEXTURE_ATLAS_PATH = "image/" + TEXTURE_ATLAS_NAME + ".png";
+    private static final String TEXTURE_ATLAS_PATH = "images/" + TEXTURE_ATLAS_NAME + ".png";
 
     private static final String FONT_NAME = "PressStart2P";
-    private static final String FONT_PATH = "font/" + FONT_NAME + ".fnt";
+    private static final String FONT_PATH = "fonts/" + FONT_NAME + ".fnt";
 
     private static final float DEFAULT_FONT_SIZE = 32.0f;
     private static final float DESIRED_FONT_SIZE = 8.0f;

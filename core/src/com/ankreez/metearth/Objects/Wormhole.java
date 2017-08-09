@@ -40,6 +40,14 @@ public class Wormhole implements Iterable<Portal> {
         }
     }
 
+    public Portal getAlphaPortal() {
+        return mPortals[ALPHA_PORTAL_ID];
+    }
+
+    public Portal getBetaPortal() {
+        return mPortals[BETA_PORTAL_ID];
+    }
+
     @Override
     public Iterator<Portal> iterator() {
         return new WormholeIterator();

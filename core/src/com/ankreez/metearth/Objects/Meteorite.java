@@ -32,6 +32,9 @@ public class Meteorite extends DynamicSimpleObject {
         setWidth(2.0f * radius);
         setHeight(2.0f * radius);
 
+        mBounds = new Circle();
+        mBounds.setRadius(getRadius());
+
         reset(worldWidth, worldHeight);
     }
 
@@ -108,7 +111,7 @@ public class Meteorite extends DynamicSimpleObject {
         mRotation = 0.0f;
         mRotationSpeed = ROTATION_SPEED_MIN + sRandom.nextFloat() * ROTATION_SPEED_DELTA;
 
-        mBounds = new Circle(getX() + getRadius(), getY() + getRadius(), getRadius());
+        mBounds.setPosition(getX() + getRadius(), getY() + getRadius());
     }
 
     public boolean collides(Earth earth) {

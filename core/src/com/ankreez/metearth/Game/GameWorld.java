@@ -145,6 +145,14 @@ public class GameWorld {
         ++mScore;
     }
 
+    public GameState getGameState() {
+        return mState;
+    }
+
+    public void setGameState(GameState gameState) {
+        mState = gameState;
+    }
+
     public float getWorldWidth() {
         return mWorldWidth;
     }

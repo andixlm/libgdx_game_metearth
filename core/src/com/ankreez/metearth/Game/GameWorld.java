@@ -16,7 +16,7 @@ public class GameWorld {
     private float mWorldWidth;
     private float mWorldHeight;
 
-    private GameState mState;
+    private GameState mGameState;
     private short mScore;
 
     private Earth mEarth;
@@ -60,7 +60,7 @@ public class GameWorld {
     }
 
     public void update(float delta) {
-        switch (mState) {
+        switch (mGameState) {
             case GAME_READY:
                 updateOnGameReady(delta);
                 break;
@@ -122,23 +122,23 @@ public class GameWorld {
     }
 
     public boolean isGameReady() {
-        return mState == GameState.GAME_READY;
+        return mGameState == GameState.GAME_READY;
     }
 
     public void startGame() {
-        mState = GameState.GAME_RUNNING;
+        mGameState = GameState.GAME_RUNNING;
     }
 
     public boolean isGameRunning() {
-        return mState == GameState.GAME_RUNNING;
+        return mGameState == GameState.GAME_RUNNING;
     }
 
     public void stopGame() {
-        mState = GameState.GAME_OVER;
+        mGameState = GameState.GAME_OVER;
     }
 
     public boolean isGameOver() {
-        return mState == GameState.GAME_OVER;
+        return mGameState == GameState.GAME_OVER;
     }
 
     public void increaseScore() {
@@ -146,11 +146,11 @@ public class GameWorld {
     }
 
     public GameState getGameState() {
-        return mState;
+        return mGameState;
     }
 
     public void setGameState(GameState gameState) {
-        mState = gameState;
+        mGameState = gameState;
     }
 
     public float getWorldWidth() {

@@ -11,6 +11,8 @@ public class InputHelper implements InputProcessor {
 
     private GameWorld mGameWorld;
 
+    private GameWorld.GameState mGameState;
+
     private Portal mPortal;
     private float mPortalHalfWidth;
     private float mPortalHalfHeight;
@@ -22,6 +24,8 @@ public class InputHelper implements InputProcessor {
 
     public InputHelper(GameWorld gameWorld, GameRenderer gameRenderer) {
         mGameWorld = gameWorld;
+
+        mGameState = mGameWorld.getGameState();
 
         mPortal = mGameWorld.getNextPortal();
         mPortalHalfWidth = mPortal.getWidth() / 2.0f;
@@ -52,8 +56,20 @@ public class InputHelper implements InputProcessor {
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         mCamera.unproject(mWorldCoords.set((float) screenX, (float) screenY, 0.0f));
 
-        mPortal.onClick(mWorldCoords.x - mPortalHalfWidth, mWorldCoords.y - mPortalHalfHeight);
-        mPortal = mGameWorld.getNextPortal();
+        mGameState = mGameWorld.getGameState();
+        switch (mGameState) {
+            case GAME_READY:
+                touchDownOnGameReady();
+                break;
+
+            case GAME_RUNNING:
+                touchDownOnGameRunning();
+                break;
+
+            case GAME_OVER:
+                touchDownOnGameOver();
+                break;
+        }
 
         return true;
     }
@@ -77,4 +93,18 @@ public class InputHelper implements InputProcessor {
     public boolean scrolled(int amount) {
         return false;
     }
+
+    private void touchDownOnGameReady() {
+
+    }
+
+    private void touchDownOnGameRunning() {
+        mPortal.onClick(mWorldCoords.x - mPortalHalfWidth, mWorldCoords.y - mPortalHalfHeight);
+        mPortal = mGameWorld.getNextPortal();
+    }
+
+    private void touchDownOnGameOver() {
+
+    }
+
 }

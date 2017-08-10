@@ -18,6 +18,8 @@ public class GameRenderer {
 
     private GameWorld mGameWorld;
 
+    private GameWorld.GameState mGameState;
+
     private float mWorldWidth;
     private float mWorldHeight;
 
@@ -33,11 +35,13 @@ public class GameRenderer {
     private TextureRegion mMeteoriteTexture;
 
     private OrthographicCamera mCamera;
-    
+
     private SpriteBatch mSpriteRenderer;
 
     public GameRenderer(GameWorld gameWorld) {
         mGameWorld = gameWorld;
+
+        mGameState = mGameWorld.getGameState();
 
         mWorldWidth = mGameWorld.getWorldWidth();
         mWorldHeight = mGameWorld.getWorldHeight();
@@ -58,6 +62,15 @@ public class GameRenderer {
         mScoreText = "";
     }
 
+    private void updateScore() {
+        short currentScore = mGameWorld.getScore();
+
+        if (mScore != currentScore) {
+            mScore = currentScore;
+            mScoreText = String.valueOf(mScore);
+        }
+    }
+
     private void initObjects() {
         mEarth = mGameWorld.getEarth();
         mWormhole = mGameWorld.getWormhole();
@@ -71,10 +84,31 @@ public class GameRenderer {
     }
 
     public void render(float delta) {
-        updateScore();
-
         Gdx.gl.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        mGameState = mGameWorld.getGameState();
+        switch (mGameState) {
+            case GAME_READY:
+                renderOnGameReady();
+                break;
+
+            case GAME_RUNNING:
+                renderOnGameRunning();
+                break;
+
+            case GAME_OVER:
+                renderOnGameOver();
+                break;
+        }
+    }
+
+    private void renderOnGameReady() {
+
+    }
+
+    private void renderOnGameRunning() {
+        updateScore();
 
         mSpriteRenderer.begin();
 
@@ -102,13 +136,8 @@ public class GameRenderer {
         mSpriteRenderer.end();
     }
 
-    private void updateScore() {
-        short currentScore = mGameWorld.getScore();
+    private void renderOnGameOver() {
 
-        if (mScore != currentScore) {
-            mScore = currentScore;
-            mScoreText = String.valueOf(mScore);
-        }
     }
 
     public GameWorld getGameWorld() {

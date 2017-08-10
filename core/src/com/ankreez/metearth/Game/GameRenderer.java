@@ -30,6 +30,9 @@ public class GameRenderer {
     private Wormhole mWormhole;
     private Array<Meteorite> mMeteorites;
 
+    private TextureRegion mPlayButtonTexture;
+    private TextureRegion mReplayButtonTexture;
+
     private TextureRegion mEarthTexture;
     private TextureRegion mPortalTexture;
     private TextureRegion mMeteoriteTexture;
@@ -78,6 +81,9 @@ public class GameRenderer {
     }
 
     private void initAssets() {
+        mPlayButtonTexture = AssetHelper.sPlayButtonTexture;
+        mReplayButtonTexture = AssetHelper.sReplayButtonTexture;
+
         mEarthTexture = AssetHelper.sEarthTexture;
         mPortalTexture = AssetHelper.sPortalTexture;
         mMeteoriteTexture = AssetHelper.sMeteoriteTexture;

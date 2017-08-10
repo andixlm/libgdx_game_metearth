@@ -96,24 +96,24 @@ public class GameRenderer {
         mGameState = mGameWorld.getGameState();
         switch (mGameState) {
             case GAME_READY:
-                renderOnGameReady();
+                renderOnGameReady(delta);
                 break;
 
             case GAME_RUNNING:
-                renderOnGameRunning();
+                renderOnGameRunning(delta);
                 break;
 
             case GAME_OVER:
-                renderOnGameOver();
+                renderOnGameOver(delta);
                 break;
         }
     }
 
-    private void renderOnGameReady() {
+    private void renderOnGameReady(float delta) {
 
     }
 
-    private void renderOnGameRunning() {
+    private void renderOnGameRunning(float delta) {
         updateScore();
 
         mSpriteRenderer.begin();
@@ -142,7 +142,7 @@ public class GameRenderer {
         mSpriteRenderer.end();
     }
 
-    private void renderOnGameOver() {
+    private void renderOnGameOver(float delta) {
 
     }
 

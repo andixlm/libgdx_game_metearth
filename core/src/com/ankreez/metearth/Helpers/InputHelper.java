@@ -121,4 +121,12 @@ public class InputHelper implements InputProcessor {
         }
     }
 
+    public GameWorld.GameState getGameState() {
+        return mGameState;
+    }
+
+    public void setGameState(GameWorld.GameState gameState) {
+        mGameState = gameState;
+    }
+
 }

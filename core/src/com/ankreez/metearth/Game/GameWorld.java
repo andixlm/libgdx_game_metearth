@@ -137,6 +137,8 @@ public class GameWorld {
 
     public void startGame() {
         mGameState = GameState.GAME_RUNNING;
+
+        mOnGameStateChangeListener.onGameStateChange(mGameState);
     }
 
     public boolean isGameRunning() {
@@ -145,6 +147,8 @@ public class GameWorld {
 
     public void stopGame() {
         mGameState = GameState.GAME_OVER;
+
+        mOnGameStateChangeListener.onGameStateChange(mGameState);
     }
 
     public boolean isGameOver() {
@@ -161,6 +165,8 @@ public class GameWorld {
         }
 
         mGameState = GameState.GAME_RUNNING;
+
+        mOnGameStateChangeListener.onGameStateChange(mGameState);
     }
 
     public void increaseScore() {

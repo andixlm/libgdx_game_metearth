@@ -1,5 +1,6 @@
 package com.ankreez.metearth.Game;
 
+import com.ankreez.metearth.Helpers.OnGameStateChangeListener;
 import com.ankreez.metearth.Objects.Earth;
 import com.ankreez.metearth.Objects.Meteorite;
 import com.ankreez.metearth.Objects.Portal;
@@ -26,6 +27,8 @@ public class GameWorld {
     private Earth mEarth;
     private Wormhole mWormhole;
     private Array<Meteorite> mMeteorites;
+
+    private OnGameStateChangeListener mOnGameStateChangeListener;
 
     public GameWorld(float worldWidth, float worldHeight) {
         mWorldWidth = worldWidth;
@@ -210,6 +213,14 @@ public class GameWorld {
 
     public Array<Meteorite> getMeteorites() {
         return mMeteorites;
+    }
+
+    public OnGameStateChangeListener getOnGameStateChangeListener() {
+        return mOnGameStateChangeListener;
+    }
+
+    public void setOnGameStateChangeListener(OnGameStateChangeListener listener) {
+        mOnGameStateChangeListener = listener;
     }
 
 }

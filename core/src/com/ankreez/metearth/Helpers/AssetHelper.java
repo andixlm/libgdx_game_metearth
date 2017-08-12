@@ -19,6 +19,8 @@ public class AssetHelper {
 
     public static Texture sTextureAtlas;
 
+    public static TextureRegion sGameTitleTexture;
+
     public static TextureRegion sPlayButtonTexture;
     public static TextureRegion sReplayButtonTexture;
 
@@ -31,6 +33,8 @@ public class AssetHelper {
     public static void load() {
         sTextureAtlas = new Texture(Gdx.files.internal(TEXTURE_ATLAS_PATH));
         sTextureAtlas.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
+
+        sGameTitleTexture = new TextureRegion(sTextureAtlas, 0, 128, 128, 16);
 
         sPlayButtonTexture = new TextureRegion(sTextureAtlas, 0, 64, 64, 64);
         sReplayButtonTexture = new TextureRegion(sTextureAtlas, 64, 64, 64, 64);

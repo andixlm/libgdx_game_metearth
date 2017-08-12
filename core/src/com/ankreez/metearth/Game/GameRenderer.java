@@ -181,4 +181,12 @@ public class GameRenderer {
         mCamera = camera;
     }
 
+    public GameWorld.GameState getGameState() {
+        return mGameState;
+    }
+
+    public void setGameState(GameWorld.GameState gameState) {
+        mGameState = gameState;
+    }
+
 }

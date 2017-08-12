@@ -66,7 +66,6 @@ public class InputHelper implements InputProcessor {
         int worldX = (int) mWorldCoords.x;
         int worldY = (int) mWorldCoords.y;
 
-        mGameState = mGameWorld.getGameState();
         switch (mGameState) {
             case GAME_READY:
                 touchDownOnGameReady(worldX, worldY, pointer, button);

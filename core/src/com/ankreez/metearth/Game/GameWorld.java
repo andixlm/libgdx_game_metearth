@@ -34,8 +34,7 @@ public class GameWorld {
 
         initObjects();
 
-        // TODO: First game state must be READY.
-        startGame();
+        mGameState = GameState.GAME_READY;
     }
 
     private void initObjects() {

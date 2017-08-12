@@ -1,5 +1,7 @@
 package com.ankreez.metearth.Objects;
 
+import com.badlogic.gdx.math.Vector2;
+
 import java.util.Iterator;
 
 public class Wormhole implements Iterable<Portal> {
@@ -12,10 +14,16 @@ public class Wormhole implements Iterable<Portal> {
     private byte mPortalId;
     private Portal[] mPortals;
 
+    private Vector2 mAlphaInitialPosition;
+    private Vector2 mBetaInitialPosition;
+
     public Wormhole(Portal alphaPortal, Portal betaPortal) {
         if (alphaPortal == null || betaPortal == null) {
             throw new IllegalArgumentException();
         }
+
+        mAlphaInitialPosition = new Vector2(alphaPortal.getPosition());
+        mBetaInitialPosition = new Vector2(betaPortal.getPosition());
 
         alphaPortal.setOutPortal(betaPortal);
         betaPortal.setOutPortal(alphaPortal);

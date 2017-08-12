@@ -156,7 +156,13 @@ public class GameRenderer {
     }
 
     private void renderOnGameOver(float delta) {
+        mSpriteRenderer.begin();
 
+        mSpriteRenderer.draw(mReplayButtonTexture,
+                mReplayButton.getX(), mReplayButton.getY(),
+                mReplayButton.getWidth(), mReplayButton.getHeight());
+
+        mSpriteRenderer.end();
     }
 
     public GameWorld getGameWorld() {

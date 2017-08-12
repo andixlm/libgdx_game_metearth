@@ -16,14 +16,16 @@ public class GameScreen extends SimpleScreen {
 
     private GameWorld mGameWorld;
     private GameRenderer mGameRenderer;
+    private InputHelper mInputHelper;
 
     public GameScreen(Game game) {
         super(game);
 
         mGameWorld = new GameWorld(WORLD_WIDTH, WORLD_HEIGHT);
         mGameRenderer = new GameRenderer(mGameWorld);
+        mInputHelper = new InputHelper(mGameWorld, mGameRenderer);
 
-        Gdx.input.setInputProcessor(new InputHelper(mGameWorld, mGameRenderer));
+        Gdx.input.setInputProcessor(mInputHelper);
     }
 
     @Override

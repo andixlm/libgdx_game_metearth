@@ -116,7 +116,9 @@ public class InputHelper implements InputProcessor {
     }
 
     private void touchDownOnGameOver(int screenX, int screenY, int pointer, int button) {
-
+        if (mReplayButton.isClicked(screenX, screenY)) {
+            mGameWorld.restartGame();
+        }
     }
 
 }

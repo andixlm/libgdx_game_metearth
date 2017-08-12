@@ -4,6 +4,7 @@ import com.ankreez.metearth.Objects.Earth;
 import com.ankreez.metearth.Objects.Meteorite;
 import com.ankreez.metearth.Objects.Portal;
 import com.ankreez.metearth.Objects.Wormhole;
+import com.ankreez.metearth.UI.RoundButton;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 
@@ -18,6 +19,8 @@ public class GameWorld {
 
     private GameState mGameState;
     private short mScore;
+
+    private RoundButton mPlayButton;
 
     private Earth mEarth;
     private Wormhole mWormhole;
@@ -40,6 +43,9 @@ public class GameWorld {
         float earthHeight = earthWidth;
         float earthPositionX = (mWorldWidth - earthWidth) / 2.0f;
         float earthPositionY = (mWorldHeight - earthHeight) / 2.0f;
+
+        mPlayButton = new RoundButton(earthPositionX, earthPositionY, earthWidth, earthHeight);
+
         mEarth = new Earth(earthPositionX, earthPositionY, earthWidth, earthHeight);
 
         float portalRadius = (earthWidth / 2.0f) / 2.25f;
@@ -167,6 +173,10 @@ public class GameWorld {
 
     public void setScore(short score) {
         mScore = score > 0 ? score : 0;
+    }
+
+    public RoundButton getPlayButton() {
+        return mPlayButton;
     }
 
     public Earth getEarth() {

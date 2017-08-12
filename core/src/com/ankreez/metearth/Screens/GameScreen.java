@@ -23,11 +23,6 @@ public class GameScreen extends SimpleScreen {
         super(game);
 
         mGameWorld = new GameWorld(WORLD_WIDTH, WORLD_HEIGHT);
-        mGameRenderer = new GameRenderer(mGameWorld);
-        mInputHelper = new InputHelper(mGameWorld, mGameRenderer);
-
-        Gdx.input.setInputProcessor(mInputHelper);
-
         mGameWorld.setOnGameStateChangeListener(new OnGameStateChangeListener() {
 
             @Override
@@ -37,6 +32,11 @@ public class GameScreen extends SimpleScreen {
             }
 
         });
+
+        mGameRenderer = new GameRenderer(mGameWorld);
+
+        mInputHelper = new InputHelper(mGameWorld, mGameRenderer);
+        Gdx.input.setInputProcessor(mInputHelper);
     }
 
     @Override

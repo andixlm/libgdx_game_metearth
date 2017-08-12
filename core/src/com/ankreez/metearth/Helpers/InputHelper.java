@@ -103,7 +103,9 @@ public class InputHelper implements InputProcessor {
     }
 
     private void touchDownOnGameReady(int screenX, int screenY, int pointer, int button) {
-
+        if (mPlayButton.isClicked(screenX, screenY)) {
+            mGameWorld.startGame();
+        }
     }
 
     private void touchDownOnGameRunning(int screenX, int screenY, int pointer, int button) {

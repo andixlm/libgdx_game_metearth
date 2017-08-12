@@ -21,6 +21,7 @@ public class GameWorld {
     private short mScore;
 
     private RoundButton mPlayButton;
+    private RoundButton mReplayButton;
 
     private Earth mEarth;
     private Wormhole mWormhole;
@@ -44,6 +45,7 @@ public class GameWorld {
         float earthPositionY = (mWorldHeight - earthHeight) / 2.0f;
 
         mPlayButton = new RoundButton(earthPositionX, earthPositionY, earthWidth, earthHeight);
+        mReplayButton = new RoundButton(earthPositionX, earthPositionY, earthWidth, earthHeight);
 
         mEarth = new Earth(earthPositionX, earthPositionY, earthWidth, earthHeight);
 
@@ -176,6 +178,10 @@ public class GameWorld {
 
     public RoundButton getPlayButton() {
         return mPlayButton;
+    }
+
+    public RoundButton getReplayButton() {
+        return mReplayButton;
     }
 
     public Earth getEarth() {

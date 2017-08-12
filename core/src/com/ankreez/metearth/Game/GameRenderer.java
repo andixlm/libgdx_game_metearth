@@ -118,6 +118,14 @@ public class GameRenderer {
     private void renderOnGameReady(float delta) {
         mSpriteRenderer.begin();
 
+        for (Meteorite meteorite : mMeteorites) {
+            mSpriteRenderer.draw(mMeteoriteTexture,
+                    meteorite.getX(), meteorite.getY(),
+                    meteorite.getWidth() / 2.0f, meteorite.getHeight() / 2.0f,
+                    meteorite.getWidth(), meteorite.getHeight(),
+                    1.0f, 1.0f, meteorite.getRotation());
+        }
+
         mSpriteRenderer.draw(mPlayButtonTexture,
                 mPlayButton.getX(), mPlayButton.getY(),
                 mPlayButton.getWidth(), mPlayButton.getHeight());

@@ -86,7 +86,13 @@ public class GameWorld {
     }
 
     private void updateOnGameReady(float delta) {
+        for (Meteorite meteorite : mMeteorites) {
+            meteorite.update(delta);
 
+            if (meteorite.isOutOfScreen(mWorldWidth, mWorldHeight)) {
+                meteorite.reset(mWorldWidth, mWorldHeight);
+            }
+        }
     }
 
     private void updateOnGameRunning(float delta) {

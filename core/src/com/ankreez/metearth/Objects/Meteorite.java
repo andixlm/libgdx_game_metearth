@@ -136,6 +136,10 @@ public class Meteorite extends DynamicSimpleObject {
         return null;
     }
 
+    public void onRestart(float worldWidth, float worldHeight) {
+        reset(worldWidth, worldHeight);
+    }
+
     public float getRadius() {
         return getWidth() / 2.0f;
     }

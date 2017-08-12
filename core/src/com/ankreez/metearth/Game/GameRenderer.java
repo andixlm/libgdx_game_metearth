@@ -115,7 +115,13 @@ public class GameRenderer {
     }
 
     private void renderOnGameReady(float delta) {
+        mSpriteRenderer.begin();
 
+        mSpriteRenderer.draw(mPlayButtonTexture,
+                mPlayButton.getX(), mPlayButton.getY(),
+                mPlayButton.getWidth(), mPlayButton.getHeight());
+
+        mSpriteRenderer.end();
     }
 
     private void renderOnGameRunning(float delta) {

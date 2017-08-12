@@ -3,6 +3,7 @@ package com.ankreez.metearth.Helpers;
 import com.ankreez.metearth.Game.GameRenderer;
 import com.ankreez.metearth.Game.GameWorld;
 import com.ankreez.metearth.Objects.Portal;
+import com.ankreez.metearth.UI.RoundButton;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Vector3;
@@ -12,6 +13,8 @@ public class InputHelper implements InputProcessor {
     private GameWorld mGameWorld;
 
     private GameWorld.GameState mGameState;
+
+    private RoundButton mPlayButton;
 
     private Portal mPortal;
     private float mPortalHalfWidth;
@@ -26,6 +29,8 @@ public class InputHelper implements InputProcessor {
         mGameWorld = gameWorld;
 
         mGameState = mGameWorld.getGameState();
+
+        mPlayButton = mGameWorld.getPlayButton();
 
         mPortal = mGameWorld.getNextPortal();
         mPortalHalfWidth = mPortal.getWidth() / 2.0f;

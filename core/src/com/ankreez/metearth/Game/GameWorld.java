@@ -142,6 +142,10 @@ public class GameWorld {
     }
 
     public void startGame() {
+        for (Meteorite meteorite : mMeteorites) {
+            meteorite.reset(mWorldWidth, mWorldHeight);
+        }
+
         mGameState = GameState.GAME_RUNNING;
 
         mOnGameStateChangeListener.onGameStateChange(mGameState);

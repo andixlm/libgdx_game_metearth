@@ -59,15 +59,15 @@ public class InputHelper implements InputProcessor {
         mGameState = mGameWorld.getGameState();
         switch (mGameState) {
             case GAME_READY:
-                touchDownOnGameReady();
+                touchDownOnGameReady(worldX, worldY, pointer, button);
                 break;
 
             case GAME_RUNNING:
-                touchDownOnGameRunning();
+                touchDownOnGameRunning(worldX, worldY, pointer, button);
                 break;
 
             case GAME_OVER:
-                touchDownOnGameOver();
+                touchDownOnGameOver(worldX, worldY, pointer, button);
                 break;
         }
 
@@ -94,16 +94,16 @@ public class InputHelper implements InputProcessor {
         return false;
     }
 
-    private void touchDownOnGameReady() {
+    private void touchDownOnGameReady(int screenX, int screenY, int pointer, int button) {
 
     }
 
-    private void touchDownOnGameRunning() {
+    private void touchDownOnGameRunning(int screenX, int screenY, int pointer, int button) {
         mPortal.onClick(mWorldCoords.x - mPortalHalfWidth, mWorldCoords.y - mPortalHalfHeight);
         mPortal = mGameWorld.getNextPortal();
     }
 
-    private void touchDownOnGameOver() {
+    private void touchDownOnGameOver(int screenX, int screenY, int pointer, int button) {
 
     }
 

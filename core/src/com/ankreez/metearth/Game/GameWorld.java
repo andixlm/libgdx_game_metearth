@@ -148,6 +148,18 @@ public class GameWorld {
         return mGameState == GameState.GAME_OVER;
     }
 
+    public void restartGame() {
+        mScore = 0;
+
+        mWormhole.onRestart();
+
+        for (Meteorite meteorite : mMeteorites) {
+            meteorite.onRestart(mWorldWidth, mWorldHeight);
+        }
+
+        mGameState = GameState.GAME_RUNNING;
+    }
+
     public void increaseScore() {
         ++mScore;
     }

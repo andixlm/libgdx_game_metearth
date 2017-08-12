@@ -28,6 +28,7 @@ public class GameRenderer {
     private String mScoreText;
 
     private RoundButton mPlayButton;
+    private RoundButton mReplayButton;
 
     private Earth mEarth;
     private Wormhole mWormhole;
@@ -79,6 +80,7 @@ public class GameRenderer {
 
     private void initObjects() {
         mPlayButton = mGameWorld.getPlayButton();
+        mReplayButton = mGameWorld.getReplayButton();
 
         mEarth = mGameWorld.getEarth();
         mWormhole = mGameWorld.getWormhole();

@@ -15,6 +15,7 @@ public class InputHelper implements InputProcessor {
     private GameWorld.GameState mGameState;
 
     private RoundButton mPlayButton;
+    private RoundButton mReplayButton;
 
     private Portal mPortal;
     private float mPortalHalfWidth;
@@ -31,6 +32,7 @@ public class InputHelper implements InputProcessor {
         mGameState = mGameWorld.getGameState();
 
         mPlayButton = mGameWorld.getPlayButton();
+        mReplayButton = mGameWorld.getReplayButton();
 
         mPortal = mGameWorld.getNextPortal();
         mPortalHalfWidth = mPortal.getWidth() / 2.0f;

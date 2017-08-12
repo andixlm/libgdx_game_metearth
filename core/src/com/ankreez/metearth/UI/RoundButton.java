@@ -11,7 +11,7 @@ public class RoundButton extends SimpleObject {
     public RoundButton(float x, float y, float width, float height) {
         super(x, y, width, height);
 
-        mBounds = new Circle(x, y, width);
+        mBounds = new Circle(x + width / 2.0f, y + height / 2.0f, width / 2.0f);
     }
 
     public RoundButton(Vector2 position, float width, float height) {

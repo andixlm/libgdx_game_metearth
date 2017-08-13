@@ -26,6 +26,9 @@ public class GameScreen extends SimpleScreen {
 
             @Override
             public void onGameStateChange(GameWorld.GameState gameState) {
+                mGameWorld.updateHighScore();
+                mGameRenderer.updateHighScore();
+
                 mGameRenderer.setGameState(gameState);
                 mInputHelper.setGameState(gameState);
             }

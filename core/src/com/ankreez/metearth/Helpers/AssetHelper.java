@@ -20,6 +20,7 @@ public class AssetHelper {
     public static Texture sTextureAtlas;
 
     public static TextureRegion sGameTitleTexture;
+    public static TextureRegion sAppealTexture;
 
     public static TextureRegion sPlayButtonTexture;
     public static TextureRegion sReplayButtonTexture;
@@ -35,6 +36,7 @@ public class AssetHelper {
         sTextureAtlas.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
 
         sGameTitleTexture = new TextureRegion(sTextureAtlas, 0, 128, 128, 16);
+        sAppealTexture = new TextureRegion(sTextureAtlas, 0, 144, 135, 8);
 
         sPlayButtonTexture = new TextureRegion(sTextureAtlas, 0, 64, 64, 64);
         sReplayButtonTexture = new TextureRegion(sTextureAtlas, 64, 64, 64, 64);

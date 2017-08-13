@@ -1,5 +1,6 @@
 package com.ankreez.metearth.Game;
 
+import com.ankreez.metearth.Helpers.AssetHelper;
 import com.ankreez.metearth.Objects.Earth;
 import com.ankreez.metearth.Objects.Meteorite;
 import com.ankreez.metearth.Objects.Portal;
@@ -214,6 +215,12 @@ public class GameWorld {
 
     public void increaseScore() {
         ++mScore;
+    }
+
+    public void updateHighScore() {
+        if (mScore > AssetHelper.getHighScore()) {
+            AssetHelper.setHighScore(mScore);
+        }
     }
 
     public GameState getGameState() {

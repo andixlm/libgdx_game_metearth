@@ -193,6 +193,14 @@ public class GameRenderer {
     private void renderOnGameOver(float delta) {
         mSpriteRenderer.begin();
 
+        mSpriteRenderer.draw(mScoreTextTexture,
+                mScoreText.getX(), mScoreText.getY(),
+                mScoreText.getWidth(), mScoreText.getHeight());
+
+        AssetHelper.sFont.draw(mSpriteRenderer, mScoreString,
+                mScoreText.getX() + 6.5f * mScoreText.getWidth() / 6.0f,
+                mScoreText.getY() + mScoreText.getHeight() / 1.5f);
+
         mSpriteRenderer.draw(mReplayButtonTexture,
                 mReplayButton.getX(), mReplayButton.getY(),
                 mReplayButton.getWidth(), mReplayButton.getHeight());

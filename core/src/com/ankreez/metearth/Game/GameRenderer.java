@@ -26,7 +26,9 @@ public class GameRenderer {
     private float mWorldHeight;
 
     private short mScore;
+    private short mHighScore;
     private String mScoreString;
+    private String mHighScoreString;
 
     private TextBox mGameTitle;
     private TextBox mAppeal;
@@ -79,6 +81,9 @@ public class GameRenderer {
     private void initScore() {
         mScore = -1;
         mScoreString = "";
+
+        mHighScore = -1;
+        mHighScoreString = "";
     }
 
     private void updateScore() {

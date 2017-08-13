@@ -95,6 +95,11 @@ public class GameRenderer {
         }
     }
 
+    public void updateHighScore() {
+        mHighScore = (short) AssetHelper.getHighScore();
+        mHighScoreString = String.valueOf(mHighScore);
+    }
+
     private void initObjects() {
         mGameTitle = mGameWorld.getGameTitle();
         mAppeal = mGameWorld.getAppeal();

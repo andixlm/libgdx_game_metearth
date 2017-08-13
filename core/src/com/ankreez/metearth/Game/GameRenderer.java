@@ -143,6 +143,10 @@ public class GameRenderer {
                 mGameTitle.getX(), mGameTitle.getY(),
                 mGameTitle.getWidth(), mGameTitle.getHeight());
 
+        mSpriteRenderer.draw(mAppealTexture,
+                mAppeal.getX(), mAppeal.getY(),
+                mAppeal.getWidth(), mAppeal.getHeight());
+
         mSpriteRenderer.draw(mPlayButtonTexture,
                 mPlayButton.getX(), mPlayButton.getY(),
                 mPlayButton.getWidth(), mPlayButton.getHeight());

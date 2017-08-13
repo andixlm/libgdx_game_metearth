@@ -23,6 +23,7 @@ public class GameWorld {
     private short mScore;
 
     private TextBox mGameTitle;
+    private TextBox mAppeal;
 
     private RoundButton mPlayButton;
     private RoundButton mReplayButton;
@@ -51,6 +52,12 @@ public class GameWorld {
         float gameTitlePositionY = 3.0f * mWorldHeight / 4.0f;
         mGameTitle = new TextBox(gameTitlePositionX, gameTitlePositionY,
                 gameTitleWidth, gameTitleHeight);
+
+        float appealWidth = mWorldWidth / 2.0f;
+        float appealHeight = appealWidth / 16.875f;
+        float appealPositionX = 1.0f * mWorldWidth / 2.0f;
+        float appealPositionY = 0.0f;
+        mAppeal = new TextBox(appealPositionX, appealPositionY, appealWidth, appealHeight);
 
         float earthWidth = mWorldWidth / 2.5f;
         float earthHeight = earthWidth;
@@ -219,6 +226,10 @@ public class GameWorld {
 
     public TextBox getGameTitle() {
         return mGameTitle;
+    }
+
+    public TextBox getAppeal() {
+        return mAppeal;
     }
 
     public RoundButton getPlayButton() {

@@ -6,6 +6,7 @@ import com.ankreez.metearth.Objects.Meteorite;
 import com.ankreez.metearth.Objects.Portal;
 import com.ankreez.metearth.Objects.Wormhole;
 import com.ankreez.metearth.UI.RoundButton;
+import com.ankreez.metearth.UI.TextBox;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -27,12 +28,16 @@ public class GameRenderer {
     private short mScore;
     private String mScoreText;
 
+    private TextBox mGameTitle;
+
     private RoundButton mPlayButton;
     private RoundButton mReplayButton;
 
     private Earth mEarth;
     private Wormhole mWormhole;
     private Array<Meteorite> mMeteorites;
+
+    private TextureRegion mGameTitleTexture;
 
     private TextureRegion mPlayButtonTexture;
     private TextureRegion mReplayButtonTexture;
@@ -79,6 +84,8 @@ public class GameRenderer {
     }
 
     private void initObjects() {
+        mGameTitle = mGameWorld.getGameTitle();
+
         mPlayButton = mGameWorld.getPlayButton();
         mReplayButton = mGameWorld.getReplayButton();
 
@@ -88,6 +95,8 @@ public class GameRenderer {
     }
 
     private void initAssets() {
+        mGameTitleTexture = AssetHelper.sGameTitleTexture;
+
         mPlayButtonTexture = AssetHelper.sPlayButtonTexture;
         mReplayButtonTexture = AssetHelper.sReplayButtonTexture;
 

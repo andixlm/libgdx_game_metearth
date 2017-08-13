@@ -199,7 +199,7 @@ public class GameRenderer {
 
         AssetHelper.sFont.draw(mSpriteRenderer, mScoreString,
                 mScoreText.getX() + 6.5f * mScoreText.getWidth() / 6.0f,
-                mScoreText.getY() + mScoreText.getHeight() / 1.5f);
+                mScoreText.getY() + mScoreText.getHeight() / 1.25f);
 
         mSpriteRenderer.draw(mReplayButtonTexture,
                 mReplayButton.getX(), mReplayButton.getY(),

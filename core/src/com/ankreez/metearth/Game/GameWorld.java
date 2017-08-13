@@ -60,8 +60,8 @@ public class GameWorld {
         float appealPositionY = 0.0f;
         mAppeal = new TextBox(appealPositionX, appealPositionY, appealWidth, appealHeight);
 
-        float scoreTextWidth = mWorldWidth / 2.0f;
-        float scoreTextHeight = scoreTextWidth / 6.66667f;
+        float scoreTextWidth = mWorldWidth / 2.5f;
+        float scoreTextHeight = scoreTextWidth / 8.71428f;
         float scoreTextPositionX = (mWorldWidth - 7.5f * scoreTextWidth / 6.0f) / 2.0f;
         float scoreTextPositionY = 7.0f * mWorldHeight / 10.0f;
         mScoreText = new TextBox(scoreTextPositionX, scoreTextPositionY,

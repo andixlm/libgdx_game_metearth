@@ -135,6 +135,10 @@ public class GameRenderer {
                     1.0f, 1.0f, meteorite.getRotation());
         }
 
+        mSpriteRenderer.draw(mGameTitleTexture,
+                mGameTitle.getX(), mGameTitle.getY(),
+                mGameTitle.getWidth(), mGameTitle.getHeight());
+
         mSpriteRenderer.draw(mPlayButtonTexture,
                 mPlayButton.getX(), mPlayButton.getY(),
                 mPlayButton.getWidth(), mPlayButton.getHeight());

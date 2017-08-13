@@ -32,6 +32,7 @@ public class GameRenderer {
     private TextBox mAppeal;
 
     private TextBox mScoreText;
+    private TextBox mHighScoreText;
 
     private RoundButton mPlayButton;
     private RoundButton mReplayButton;
@@ -43,6 +44,7 @@ public class GameRenderer {
     private TextureRegion mGameTitleTexture;
     private TextureRegion mAppealTexture;
     private TextureRegion mScoreTextTexture;
+    private TextureRegion mHighScoreTextTexture;
 
     private TextureRegion mPlayButtonTexture;
     private TextureRegion mReplayButtonTexture;
@@ -93,6 +95,7 @@ public class GameRenderer {
         mAppeal = mGameWorld.getAppeal();
 
         mScoreText = mGameWorld.getScoreText();
+        mHighScoreText = mGameWorld.getHighScoreText();
 
         mPlayButton = mGameWorld.getPlayButton();
         mReplayButton = mGameWorld.getReplayButton();
@@ -107,6 +110,7 @@ public class GameRenderer {
         mAppealTexture = AssetHelper.sAppealTexture;
 
         mScoreTextTexture = AssetHelper.sScoreTextTexture;
+        mHighScoreTextTexture = AssetHelper.sHighScoreTextTexture;
 
         mPlayButtonTexture = AssetHelper.sPlayButtonTexture;
         mReplayButtonTexture = AssetHelper.sReplayButtonTexture;

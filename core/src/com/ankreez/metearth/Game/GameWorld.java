@@ -13,7 +13,7 @@ public class GameWorld {
 
     public enum GameState { GAME_READY, GAME_RUNNING, GAME_OVER }
 
-    private static final byte METEORITES_AMOUNT = 5;
+    private static final byte METEORITES_AMOUNT = 7;
 
     private float mWorldWidth;
     private float mWorldHeight;

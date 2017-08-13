@@ -25,6 +25,7 @@ public class GameWorld {
     private TextBox mAppeal;
 
     private TextBox mScoreText;
+    private TextBox mHighScoreText;
 
     private RoundButton mPlayButton;
     private RoundButton mReplayButton;
@@ -66,6 +67,13 @@ public class GameWorld {
         float scoreTextPositionY = 2.25f * mWorldHeight / 10.0f - scoreTextHeight;
         mScoreText = new TextBox(scoreTextPositionX, scoreTextPositionY,
                 scoreTextWidth, scoreTextHeight);
+
+        float highScoreTextWidth = mWorldWidth / 1.5f;
+        float highScoreTextHeight = highScoreTextWidth / 10.54545f;
+        float highScoreTextPositionX = (mWorldWidth - 12.5f * highScoreTextWidth / 11.0f) / 2.0f;
+        float highScoreTextPositionY = 1.5f * mWorldHeight / 10.0f - highScoreTextHeight;
+        mHighScoreText = new TextBox(highScoreTextPositionX, highScoreTextPositionY,
+                highScoreTextWidth, highScoreTextHeight);
 
         float earthWidth = mWorldWidth / 2.5f;
         float earthHeight = earthWidth;
@@ -242,6 +250,10 @@ public class GameWorld {
 
     public TextBox getScoreText() {
         return mScoreText;
+    }
+
+    public TextBox getHighScoreText() {
+        return mHighScoreText;
     }
 
     public RoundButton getPlayButton() {

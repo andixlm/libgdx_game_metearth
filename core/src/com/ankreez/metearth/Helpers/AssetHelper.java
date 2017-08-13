@@ -1,11 +1,16 @@
 package com.ankreez.metearth.Helpers;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class AssetHelper {
+
+    public static final String GAME_NAME = "MetEarth";
+
+    public static final String HIGH_SCORE_PREF = "com.ankreez.metearth.HIGH_SCORE";
 
     private static final String TEXTURE_ATLAS_NAME = "TextureAtlas";
     private static final String TEXTURE_ATLAS_PATH = "images/" + TEXTURE_ATLAS_NAME + ".png";
@@ -34,6 +39,8 @@ public class AssetHelper {
 
     public static BitmapFont sFont;
 
+    public static Preferences sPreferences;
+
     public static void load() {
         sTextureAtlas = new Texture(Gdx.files.internal(TEXTURE_ATLAS_PATH));
         sTextureAtlas.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
@@ -52,12 +59,28 @@ public class AssetHelper {
 
         sFont = new BitmapFont(Gdx.files.internal(FONT_PATH));
         sFont.getData().setScale(FONT_SIZE_SCALE, FONT_SIZE_SCALE);
+
+        sPreferences = Gdx.app.getPreferences(GAME_NAME);
+
+        if (!sPreferences.contains(HIGH_SCORE_PREF)) {
+            sPreferences.putInteger(HIGH_SCORE_PREF, 0);
+            sPreferences.flush();
+        }
     }
 
     public static void dispose() {
         sFont.dispose();
 
         sTextureAtlas.dispose();
+    }
+
+    public static int getHighScore() {
+        return AssetHelper.sPreferences.getInteger(AssetHelper.HIGH_SCORE_PREF);
+    }
+
+    public static void setHighScore(int score) {
+        AssetHelper.sPreferences.putInteger(AssetHelper.HIGH_SCORE_PREF, score);
+        AssetHelper.sPreferences.flush();
     }
 
 }

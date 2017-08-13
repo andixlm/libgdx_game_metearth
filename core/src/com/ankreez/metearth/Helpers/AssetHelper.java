@@ -22,6 +22,8 @@ public class AssetHelper {
     public static TextureRegion sGameTitleTexture;
     public static TextureRegion sAppealTexture;
 
+    public static TextureRegion sScoreTextTexture;
+
     public static TextureRegion sPlayButtonTexture;
     public static TextureRegion sReplayButtonTexture;
 
@@ -37,6 +39,7 @@ public class AssetHelper {
 
         sGameTitleTexture = new TextureRegion(sTextureAtlas, 0, 128, 128, 16);
         sAppealTexture = new TextureRegion(sTextureAtlas, 0, 144, 135, 8);
+        sScoreTextTexture = new TextureRegion(sTextureAtlas, 0, 163, 61, 9);
 
         sPlayButtonTexture = new TextureRegion(sTextureAtlas, 0, 64, 64, 64);
         sReplayButtonTexture = new TextureRegion(sTextureAtlas, 64, 64, 64, 64);

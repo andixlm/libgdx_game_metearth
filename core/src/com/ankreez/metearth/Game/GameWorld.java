@@ -63,7 +63,7 @@ public class GameWorld {
         float scoreTextWidth = mWorldWidth / 2.5f;
         float scoreTextHeight = scoreTextWidth / 8.71428f;
         float scoreTextPositionX = (mWorldWidth - 7.5f * scoreTextWidth / 6.0f) / 2.0f;
-        float scoreTextPositionY = 7.0f * mWorldHeight / 10.0f;
+        float scoreTextPositionY = 2.25f * mWorldHeight / 10.0f - scoreTextHeight;
         mScoreText = new TextBox(scoreTextPositionX, scoreTextPositionY,
                 scoreTextWidth, scoreTextHeight);
 

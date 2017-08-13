@@ -26,7 +26,7 @@ public class GameRenderer {
     private float mWorldHeight;
 
     private short mScore;
-    private String mScoreText;
+    private String mScoreString;
 
     private TextBox mGameTitle;
     private TextBox mAppeal;
@@ -73,7 +73,7 @@ public class GameRenderer {
 
     private void initScore() {
         mScore = -1;
-        mScoreText = "";
+        mScoreString = "";
     }
 
     private void updateScore() {
@@ -81,7 +81,7 @@ public class GameRenderer {
 
         if (mScore != currentScore) {
             mScore = currentScore;
-            mScoreText = String.valueOf(mScore);
+            mScoreString = String.valueOf(mScore);
         }
     }
 
@@ -177,8 +177,8 @@ public class GameRenderer {
                     1.0f, 1.0f, meteorite.getRotation());
         }
 
-        AssetHelper.sFont.draw(mSpriteRenderer, mScoreText,
-                (mWorldWidth - 6.0f * mScoreText.length()) / 2.0f, mWorldHeight - MARGIN);
+        AssetHelper.sFont.draw(mSpriteRenderer, mScoreString,
+                (mWorldWidth - 6.0f * mScoreString.length()) / 2.0f, mWorldHeight - MARGIN);
 
         mSpriteRenderer.end();
     }

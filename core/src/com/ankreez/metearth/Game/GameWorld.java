@@ -6,6 +6,7 @@ import com.ankreez.metearth.Objects.Meteorite;
 import com.ankreez.metearth.Objects.Portal;
 import com.ankreez.metearth.Objects.Wormhole;
 import com.ankreez.metearth.UI.RoundButton;
+import com.ankreez.metearth.UI.TextBox;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 
@@ -20,6 +21,8 @@ public class GameWorld {
 
     private GameState mGameState;
     private short mScore;
+
+    private TextBox mGameTitle;
 
     private RoundButton mPlayButton;
     private RoundButton mReplayButton;
@@ -42,6 +45,13 @@ public class GameWorld {
     }
 
     private void initObjects() {
+        float gameTitleWidth = mWorldWidth / 1.25f;
+        float gameTitleHeight = gameTitleWidth / 8.0f;
+        float gameTitlePositionX = (mWorldWidth - gameTitleWidth) / 2.0f;
+        float gameTitlePositionY = 3.0f * mWorldHeight / 4.0f;
+        mGameTitle = new TextBox(gameTitlePositionX, gameTitlePositionY,
+                gameTitleWidth, gameTitleHeight);
+
         float earthWidth = mWorldWidth / 2.5f;
         float earthHeight = earthWidth;
         float earthPositionX = (mWorldWidth - earthWidth) / 2.0f;
@@ -205,6 +215,10 @@ public class GameWorld {
 
     public void setScore(short score) {
         mScore = score > 0 ? score : 0;
+    }
+
+    public TextBox getGameTitle() {
+        return mGameTitle;
     }
 
     public RoundButton getPlayButton() {

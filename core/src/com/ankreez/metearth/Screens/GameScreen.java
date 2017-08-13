@@ -3,7 +3,6 @@ package com.ankreez.metearth.Screens;
 import com.ankreez.metearth.Game.GameRenderer;
 import com.ankreez.metearth.Game.GameWorld;
 import com.ankreez.metearth.Helpers.InputHelper;
-import com.ankreez.metearth.Helpers.OnGameStateChangeListener;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 
@@ -23,7 +22,7 @@ public class GameScreen extends SimpleScreen {
         super(game);
 
         mGameWorld = new GameWorld(WORLD_WIDTH, WORLD_HEIGHT);
-        mGameWorld.setOnGameStateChangeListener(new OnGameStateChangeListener() {
+        mGameWorld.setOnGameStateChangeListener(new GameWorld.OnGameStateChangeListener() {
 
             @Override
             public void onGameStateChange(GameWorld.GameState gameState) {

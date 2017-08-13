@@ -1,6 +1,5 @@
 package com.ankreez.metearth.Game;
 
-import com.ankreez.metearth.Helpers.OnGameStateChangeListener;
 import com.ankreez.metearth.Objects.Earth;
 import com.ankreez.metearth.Objects.Meteorite;
 import com.ankreez.metearth.Objects.Portal;
@@ -262,6 +261,12 @@ public class GameWorld {
 
     public void setOnGameStateChangeListener(OnGameStateChangeListener listener) {
         mOnGameStateChangeListener = listener;
+    }
+
+    public interface OnGameStateChangeListener {
+
+        public void onGameStateChange(GameWorld.GameState gameState);
+
     }
 
 }

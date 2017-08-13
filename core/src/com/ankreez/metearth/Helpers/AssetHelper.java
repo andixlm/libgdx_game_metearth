@@ -14,7 +14,7 @@ public class AssetHelper {
     private static final String FONT_PATH = "fonts/" + FONT_NAME + ".fnt";
 
     private static final float DEFAULT_FONT_SIZE = 32.0f;
-    private static final float DESIRED_FONT_SIZE = 8.0f;
+    private static final float DESIRED_FONT_SIZE = 7.0f;
     private static final float FONT_SIZE_SCALE = DESIRED_FONT_SIZE / DEFAULT_FONT_SIZE;
 
     public static Texture sTextureAtlas;

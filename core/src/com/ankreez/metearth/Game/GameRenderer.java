@@ -29,6 +29,7 @@ public class GameRenderer {
     private String mScoreText;
 
     private TextBox mGameTitle;
+    private TextBox mAppeal;
 
     private RoundButton mPlayButton;
     private RoundButton mReplayButton;
@@ -38,6 +39,7 @@ public class GameRenderer {
     private Array<Meteorite> mMeteorites;
 
     private TextureRegion mGameTitleTexture;
+    private TextureRegion mAppealTexture;
 
     private TextureRegion mPlayButtonTexture;
     private TextureRegion mReplayButtonTexture;
@@ -85,6 +87,7 @@ public class GameRenderer {
 
     private void initObjects() {
         mGameTitle = mGameWorld.getGameTitle();
+        mAppeal = mGameWorld.getAppeal();
 
         mPlayButton = mGameWorld.getPlayButton();
         mReplayButton = mGameWorld.getReplayButton();
@@ -96,6 +99,7 @@ public class GameRenderer {
 
     private void initAssets() {
         mGameTitleTexture = AssetHelper.sGameTitleTexture;
+        mAppealTexture = AssetHelper.sAppealTexture;
 
         mPlayButtonTexture = AssetHelper.sPlayButtonTexture;
         mReplayButtonTexture = AssetHelper.sReplayButtonTexture;

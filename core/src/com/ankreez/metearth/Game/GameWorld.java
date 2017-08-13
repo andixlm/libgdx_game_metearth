@@ -50,7 +50,7 @@ public class GameWorld {
         float gameTitleWidth = mWorldWidth / 1.25f;
         float gameTitleHeight = gameTitleWidth / 8.0f;
         float gameTitlePositionX = (mWorldWidth - gameTitleWidth) / 2.0f;
-        float gameTitlePositionY = 8.5f * mWorldHeight / 10.0f;
+        float gameTitlePositionY = 7.5f * mWorldHeight / 10.0f;
         mGameTitle = new TextBox(gameTitlePositionX, gameTitlePositionY,
                 gameTitleWidth, gameTitleHeight);
 

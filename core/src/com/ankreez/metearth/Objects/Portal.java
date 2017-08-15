@@ -38,6 +38,10 @@ public class Portal extends SimpleObject {
         updateBounds();
     }
 
+    public void onRestart() {
+        updateBounds();
+    }
+
     public float getRadius() {
         return getWidth() / 2.0f;
     }

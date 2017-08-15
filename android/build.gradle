@@ -138,3 +138,7 @@ idea {
         }
     }
 }
+
+dependencies {
+    compile 'com.google.android.gms:play-services-ads:11.0.4'
+}

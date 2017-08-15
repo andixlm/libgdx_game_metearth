@@ -28,11 +28,14 @@ public class Portal extends SimpleObject {
 
     }
 
-    public void onClick(float x, float y) {
-        setPosition(x, y);
-
+    public void updateBounds() {
         mBounds.setPosition(getX() + BOUNDS_POS_MULT * getRadius(),
                 getY() + BOUNDS_POS_MULT * getRadius());
+    }
+
+    public void onClick(float x, float y) {
+        setPosition(x, y);
+        updateBounds();
     }
 
     public float getRadius() {

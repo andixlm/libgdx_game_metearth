@@ -34,7 +34,7 @@ public class InputHelper implements InputProcessor {
         mPlayButton = mGameWorld.getPlayButton();
         mReplayButton = mGameWorld.getReplayButton();
 
-        mPortal = mGameWorld.getNextPortal();
+        mPortal = mGameWorld.getWormhole().getAlphaPortal();
         mPortalHalfWidth = mPortal.getWidth() / 2.0f;
         mPortalHalfHeight = mPortal.getHeight() / 2.0f;
 
@@ -110,8 +110,8 @@ public class InputHelper implements InputProcessor {
     }
 
     private void touchDownOnGameRunning(int screenX, int screenY, int pointer, int button) {
-        mPortal.onClick(mWorldCoords.x - mPortalHalfWidth, mWorldCoords.y - mPortalHalfHeight);
         mPortal = mGameWorld.getNextPortal();
+        mPortal.onClick(mWorldCoords.x - mPortalHalfWidth, mWorldCoords.y - mPortalHalfHeight);
     }
 
     private void touchDownOnGameOver(int screenX, int screenY, int pointer, int button) {

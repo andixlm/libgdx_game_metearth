@@ -51,6 +51,9 @@ public class Wormhole implements Iterable<Portal> {
     public void onRestart() {
         mPortals[ALPHA_PORTAL_ID].setPosition(mAlphaInitialPosition);
         mPortals[BETA_PORTAL_ID].setPosition(mBetaInitialPosition);
+
+        mPortals[ALPHA_PORTAL_ID].onRestart();
+        mPortals[BETA_PORTAL_ID].onRestart();
     }
 
     public Portal getAlphaPortal() {

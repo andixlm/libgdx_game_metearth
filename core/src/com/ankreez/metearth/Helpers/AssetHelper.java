@@ -45,17 +45,17 @@ public class AssetHelper {
         sTextureAtlas = new Texture(Gdx.files.internal(TEXTURE_ATLAS_PATH));
         sTextureAtlas.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
 
-        sGameTitleTexture = new TextureRegion(sTextureAtlas, 0, 128, 128, 16);
-        sAppealTexture = new TextureRegion(sTextureAtlas, 0, 144, 135, 8);
-        sScoreTextTexture = new TextureRegion(sTextureAtlas, 0, 163, 61, 7);
-        sHighScoreTextTexture = new TextureRegion(sTextureAtlas, 0, 152, 109, 11);
+        sGameTitleTexture = new TextureRegion(sTextureAtlas, 0, 65, 126, 14);
+        sAppealTexture = new TextureRegion(sTextureAtlas, 0, 82, 270, 16);
+        sScoreTextTexture = new TextureRegion(sTextureAtlas, 199, 65, 88, 16);
+        sHighScoreTextTexture = new TextureRegion(sTextureAtlas, 127, 65, 160, 16);
 
-        sPlayButtonTexture = new TextureRegion(sTextureAtlas, 0, 64, 64, 64);
-        sReplayButtonTexture = new TextureRegion(sTextureAtlas, 64, 64, 64, 64);
+        sPlayButtonTexture = new TextureRegion(sTextureAtlas, 193, 0, 64, 64);
+        sReplayButtonTexture = new TextureRegion(sTextureAtlas, 258, 0, 64, 64);
 
         sEarthTexture = new TextureRegion(sTextureAtlas, 0, 0, 64, 64);
-        sPortalTexture = new TextureRegion(sTextureAtlas, 64, 0, 64, 64);
-        sMeteoriteTexture = new TextureRegion(sTextureAtlas, 128, 0, 62, 60);
+        sPortalTexture = new TextureRegion(sTextureAtlas, 65, 0, 64, 64);
+        sMeteoriteTexture = new TextureRegion(sTextureAtlas, 130, 0, 62, 59);
 
         sFont = new BitmapFont(Gdx.files.internal(FONT_PATH));
         sFont.getData().setScale(FONT_SIZE_SCALE, FONT_SIZE_SCALE);

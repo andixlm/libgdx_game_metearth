@@ -50,7 +50,7 @@ public class GameWorld {
 
     private void initObjects() {
         float gameTitleWidth = mWorldWidth / 1.25f;
-        float gameTitleHeight = gameTitleWidth / 8.0f;
+        float gameTitleHeight = gameTitleWidth / 9.0f;
         float gameTitlePositionX = (mWorldWidth - gameTitleWidth) / 2.0f;
         float gameTitlePositionY = 7.5f * mWorldHeight / 10.0f;
         mGameTitle = new TextBox(gameTitlePositionX, gameTitlePositionY,
@@ -63,14 +63,14 @@ public class GameWorld {
         mAppeal = new TextBox(appealPositionX, appealPositionY, appealWidth, appealHeight);
 
         float scoreTextWidth = mWorldWidth / 2.5f;
-        float scoreTextHeight = scoreTextWidth / 8.71428f;
+        float scoreTextHeight = scoreTextWidth / 5.5f;
         float scoreTextPositionX = (mWorldWidth - 7.5f * scoreTextWidth / 6.0f) / 2.0f;
         float scoreTextPositionY = 2.25f * mWorldHeight / 10.0f - scoreTextHeight;
         mScoreText = new TextBox(scoreTextPositionX, scoreTextPositionY,
                 scoreTextWidth, scoreTextHeight);
 
         float highScoreTextWidth = mWorldWidth / 1.5f;
-        float highScoreTextHeight = highScoreTextWidth / 10.54545f;
+        float highScoreTextHeight = highScoreTextWidth / 10.0f;
         float highScoreTextPositionX = (mWorldWidth - 12.5f * highScoreTextWidth / 11.0f) / 2.0f;
         float highScoreTextPositionY = 1.5f * mWorldHeight / 10.0f - highScoreTextHeight;
         mHighScoreText = new TextBox(highScoreTextPositionX, highScoreTextPositionY,

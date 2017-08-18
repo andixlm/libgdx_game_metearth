@@ -213,7 +213,7 @@ public class GameRenderer {
 
         AssetHelper.sFont.draw(mSpriteRenderer, mScoreString,
                 mScoreText.getX() + 6.5f * mScoreText.getWidth() / 6.0f,
-                mScoreText.getY() + mScoreText.getHeight() / 1.20f);
+                mScoreText.getY() + mScoreText.getHeight() / 1.45f);
 
         mSpriteRenderer.draw(mHighScoreTextTexture,
                 mHighScoreText.getX(), mHighScoreText.getY(),

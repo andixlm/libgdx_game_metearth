@@ -4,6 +4,7 @@ import com.ankreez.metearth.Helpers.AssetHelper;
 import com.ankreez.metearth.Objects.Earth;
 import com.ankreez.metearth.Objects.Meteorite;
 import com.ankreez.metearth.Objects.Portal;
+import com.ankreez.metearth.Objects.Space;
 import com.ankreez.metearth.Objects.Wormhole;
 import com.ankreez.metearth.UI.RoundButton;
 import com.ankreez.metearth.UI.TextBox;
@@ -31,6 +32,7 @@ public class GameWorld {
     private RoundButton mPlayButton;
     private RoundButton mReplayButton;
 
+    private Space mSpace;
     private Earth mEarth;
     private Wormhole mWormhole;
     private Array<Meteorite> mMeteorites;
@@ -83,6 +85,8 @@ public class GameWorld {
 
         mPlayButton = new RoundButton(earthPositionX, earthPositionY, earthWidth, earthHeight);
         mReplayButton = new RoundButton(earthPositionX, earthPositionY, earthWidth, earthHeight);
+
+        mSpace = new Space(mWorldWidth, mWorldHeight);
 
         mEarth = new Earth(earthPositionX, earthPositionY, earthWidth, earthHeight);
 
@@ -269,6 +273,10 @@ public class GameWorld {
 
     public RoundButton getReplayButton() {
         return mReplayButton;
+    }
+
+    public Space getSpace() {
+        return mSpace;
     }
 
     public Earth getEarth() {

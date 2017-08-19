@@ -33,6 +33,7 @@ public class AssetHelper {
     public static TextureRegion sPlayButtonTexture;
     public static TextureRegion sReplayButtonTexture;
 
+    public static TextureRegion sStarTexture;
     public static TextureRegion sEarthTexture;
     public static TextureRegion sPortalTexture;
     public static TextureRegion sMeteoriteTexture;
@@ -53,6 +54,7 @@ public class AssetHelper {
         sPlayButtonTexture = new TextureRegion(sTextureAtlas, 193, 0, 64, 64);
         sReplayButtonTexture = new TextureRegion(sTextureAtlas, 258, 0, 64, 64);
 
+        sStarTexture = new TextureRegion(sTextureAtlas, 0, 99, 5, 5);
         sEarthTexture = new TextureRegion(sTextureAtlas, 0, 0, 64, 64);
         sPortalTexture = new TextureRegion(sTextureAtlas, 65, 0, 64, 64);
         sMeteoriteTexture = new TextureRegion(sTextureAtlas, 130, 0, 62, 59);

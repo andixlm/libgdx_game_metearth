@@ -1,8 +1,10 @@
 package com.ankreez.metearth.Objects;
 
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.TimeUtils;
 
 import java.util.Iterator;
+import java.util.Random;
 
 public class Wormhole implements Iterable<Portal> {
 
@@ -10,6 +12,8 @@ public class Wormhole implements Iterable<Portal> {
 
     private static final byte ALPHA_PORTAL_ID = 0;
     private static final byte BETA_PORTAL_ID = 1;
+
+    private static final Random sRandom  = new Random(TimeUtils.millis());
 
     private byte mPortalId;
     private Portal[] mPortals;
@@ -33,7 +37,11 @@ public class Wormhole implements Iterable<Portal> {
         mPortals[ALPHA_PORTAL_ID] = alphaPortal;
         mPortals[BETA_PORTAL_ID] = betaPortal;
 
-        mPortalId = ALPHA_PORTAL_ID;
+        resetId();
+    }
+
+    private void resetId() {
+        mPortalId = (sRandom.nextFloat() < 0.5f) ? ALPHA_PORTAL_ID : BETA_PORTAL_ID;
     }
 
     public Portal getNextPortal() {
@@ -49,7 +57,7 @@ public class Wormhole implements Iterable<Portal> {
     }
 
     public void onRestart() {
-        mPortalId = ALPHA_PORTAL_ID;
+        resetId();
 
         mPortals[ALPHA_PORTAL_ID].setPosition(mAlphaInitialPosition);
         mPortals[BETA_PORTAL_ID].setPosition(mBetaInitialPosition);

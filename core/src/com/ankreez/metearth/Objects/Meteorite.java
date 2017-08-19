@@ -1,11 +1,8 @@
 package com.ankreez.metearth.Objects;
 
+import com.ankreez.metearth.Helpers.AssetHelper;
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Intersector;
-import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.utils.TimeUtils;
-
-import java.util.Random;
 
 public class Meteorite extends DynamicSimpleObject {
 
@@ -18,8 +15,6 @@ public class Meteorite extends DynamicSimpleObject {
     private static final float ROTATION_SPEED_MIN = 50.0f;
     private static final float ROTATION_SPEED_MAX = 100.0f;
     private static final float ROTATION_SPEED_DELTA = ROTATION_SPEED_MAX - ROTATION_SPEED_MIN;
-
-    private static final Random sRandom  = new Random(TimeUtils.millis());
 
     private float mRotation;
     private float mRotationSpeed;
@@ -58,58 +53,58 @@ public class Meteorite extends DynamicSimpleObject {
 
     public void reset(float worldWidth, float worldHeight) {
         // Generate random out of screen position.
-        if (sRandom.nextFloat() < DELIMITER) {
-            if (sRandom.nextFloat() < DELIMITER) {
+        if (AssetHelper.sRandom.nextFloat() < DELIMITER) {
+            if (AssetHelper.sRandom.nextFloat() < DELIMITER) {
                 // Above screen.
-                setPosition(sRandom.nextFloat() * worldWidth, worldHeight + getHeight());
+                setPosition(AssetHelper.sRandom.nextFloat() * worldWidth, worldHeight + getHeight());
 
                 if (getX() / worldWidth < DELIMITER) {
-                    setVelocity(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA,
-                            -(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA));
+                    setVelocity(VELOCITY_MIN + AssetHelper.sRandom.nextFloat() * VELOCITY_DELTA,
+                            -(VELOCITY_MIN + AssetHelper.sRandom.nextFloat() * VELOCITY_DELTA));
                 } else {
-                    setVelocity(-(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA),
-                            -(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA));
+                    setVelocity(-(VELOCITY_MIN + AssetHelper.sRandom.nextFloat() * VELOCITY_DELTA),
+                            -(VELOCITY_MIN + AssetHelper.sRandom.nextFloat() * VELOCITY_DELTA));
                 }
             } else {
                 // Below screen.
-                setPosition(sRandom.nextFloat() * worldWidth, -getHeight());
+                setPosition(AssetHelper.sRandom.nextFloat() * worldWidth, -getHeight());
 
                 if (getX() / worldWidth < DELIMITER) {
-                    setVelocity(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA,
-                            VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA);
+                    setVelocity(VELOCITY_MIN + AssetHelper.sRandom.nextFloat() * VELOCITY_DELTA,
+                            VELOCITY_MIN + AssetHelper.sRandom.nextFloat() * VELOCITY_DELTA);
                 } else {
-                    setVelocity(-(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA),
-                            VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA);
+                    setVelocity(-(VELOCITY_MIN + AssetHelper.sRandom.nextFloat() * VELOCITY_DELTA),
+                            VELOCITY_MIN + AssetHelper.sRandom.nextFloat() * VELOCITY_DELTA);
                 }
             }
         } else {
-            if (sRandom.nextFloat() < DELIMITER) {
+            if (AssetHelper.sRandom.nextFloat() < DELIMITER) {
                 // To the left of screen.
-                setPosition(-getWidth(), sRandom.nextFloat() * worldHeight);
+                setPosition(-getWidth(), AssetHelper.sRandom.nextFloat() * worldHeight);
 
                 if (getY() / worldHeight < DELIMITER) {
-                    setVelocity(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA,
-                            VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA);
+                    setVelocity(VELOCITY_MIN + AssetHelper.sRandom.nextFloat() * VELOCITY_DELTA,
+                            VELOCITY_MIN + AssetHelper.sRandom.nextFloat() * VELOCITY_DELTA);
                 } else {
-                    setVelocity(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA,
-                            -(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA));
+                    setVelocity(VELOCITY_MIN + AssetHelper.sRandom.nextFloat() * VELOCITY_DELTA,
+                            -(VELOCITY_MIN + AssetHelper.sRandom.nextFloat() * VELOCITY_DELTA));
                 }
             } else {
                 // To the right of screen.
-                setPosition(worldWidth + getWidth(), sRandom.nextFloat() * worldHeight);
+                setPosition(worldWidth + getWidth(), AssetHelper.sRandom.nextFloat() * worldHeight);
 
                 if (getY() / worldHeight < DELIMITER) {
-                    setVelocity(-(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA),
-                            VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA);
+                    setVelocity(-(VELOCITY_MIN + AssetHelper.sRandom.nextFloat() * VELOCITY_DELTA),
+                            VELOCITY_MIN + AssetHelper.sRandom.nextFloat() * VELOCITY_DELTA);
                 } else {
-                    setVelocity(-(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA),
-                            -(VELOCITY_MIN + sRandom.nextFloat() * VELOCITY_DELTA));
+                    setVelocity(-(VELOCITY_MIN + AssetHelper.sRandom.nextFloat() * VELOCITY_DELTA),
+                            -(VELOCITY_MIN + AssetHelper.sRandom.nextFloat() * VELOCITY_DELTA));
                 }
             }
         }
 
         mRotation = 0.0f;
-        mRotationSpeed = ROTATION_SPEED_MIN + sRandom.nextFloat() * ROTATION_SPEED_DELTA;
+        mRotationSpeed = ROTATION_SPEED_MIN + AssetHelper.sRandom.nextFloat() * ROTATION_SPEED_DELTA;
 
         mBounds.setPosition(getX() + getRadius(), getY() + getRadius());
     }

@@ -158,6 +158,11 @@ public class GameRenderer {
     private void renderOnGameReady(float delta) {
         mSpriteRenderer.begin();
 
+        for (Star star : mSpace) {
+            mSpriteRenderer.draw(mStarTexture,
+                    star.getX(), star.getY(), star.getWidth(), star.getHeight());
+        }
+
         for (Meteorite meteorite : mMeteorites) {
             mSpriteRenderer.draw(mMeteoriteTexture,
                     meteorite.getX(), meteorite.getY(),
@@ -186,6 +191,11 @@ public class GameRenderer {
 
         mSpriteRenderer.begin();
 
+        for (Star star : mSpace) {
+            mSpriteRenderer.draw(mStarTexture,
+                    star.getX(), star.getY(), star.getWidth(), star.getHeight());
+        }
+
         mSpriteRenderer.draw(mEarthTexture,
                 mEarth.getX(), mEarth.getY(),
                 mEarth.getWidth(), mEarth.getHeight());
@@ -212,6 +222,11 @@ public class GameRenderer {
 
     private void renderOnGameOver(float delta) {
         mSpriteRenderer.begin();
+
+        for (Star star : mSpace) {
+            mSpriteRenderer.draw(mStarTexture,
+                    star.getX(), star.getY(), star.getWidth(), star.getHeight());
+        }
 
         mSpriteRenderer.draw(mScoreTextTexture,
                 mScoreText.getX(), mScoreText.getY(),

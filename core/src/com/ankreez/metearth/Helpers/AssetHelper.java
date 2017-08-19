@@ -2,6 +2,7 @@ package com.ankreez.metearth.Helpers;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -17,6 +18,9 @@ public class AssetHelper {
 
     private static final String TEXTURE_ATLAS_NAME = "TextureAtlas";
     private static final String TEXTURE_ATLAS_PATH = "images/" + TEXTURE_ATLAS_NAME + ".png";
+
+    private static final String TELEPORT_SOUND_NAME = "Teleport";
+    private static final String TELEPORT_SOUND_PATH = "sounds/" + TELEPORT_SOUND_NAME + ".wav";
 
     private static final String FONT_NAME = "PressStart2P";
     private static final String FONT_PATH = "fonts/" + FONT_NAME + ".fnt";
@@ -43,6 +47,8 @@ public class AssetHelper {
 
     public static BitmapFont sFont;
 
+    public static Sound sTeleportSound;
+
     public static Preferences sPreferences;
 
     public static final Random sRandom  = new Random(TimeUtils.millis());
@@ -66,6 +72,8 @@ public class AssetHelper {
 
         sFont = new BitmapFont(Gdx.files.internal(FONT_PATH));
         sFont.getData().setScale(FONT_SIZE_SCALE, FONT_SIZE_SCALE);
+
+        sTeleportSound = Gdx.audio.newSound(Gdx.files.internal(TELEPORT_SOUND_PATH));
 
         sPreferences = Gdx.app.getPreferences(GAME_NAME);
 

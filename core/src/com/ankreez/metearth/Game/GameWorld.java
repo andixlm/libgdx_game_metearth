@@ -162,6 +162,7 @@ public class GameWorld {
                         increaseScore();
                     }
                 } else if (meteorite.collides(mEarth)) {
+                    AssetHelper.sCollisionSound.play();
                     stopGame();
                 }
 

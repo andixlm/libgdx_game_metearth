@@ -158,6 +158,7 @@ public class GameWorld {
                             outPortal.getX() >= portalCollided.getX() + portalCollided.getWidth() ||
                             portalCollided.getY() >= outPortal.getY() + outPortal.getHeight() ||
                             outPortal.getY() >= portalCollided.getY() + portalCollided.getHeight()) {
+                        AssetHelper.sTeleportSound.play();
                         increaseScore();
                     }
                 } else if (meteorite.collides(mEarth)) {

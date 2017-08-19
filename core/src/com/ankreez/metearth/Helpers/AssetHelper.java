@@ -21,6 +21,8 @@ public class AssetHelper {
 
     private static final String TELEPORT_SOUND_NAME = "Teleport";
     private static final String TELEPORT_SOUND_PATH = "sounds/" + TELEPORT_SOUND_NAME + ".wav";
+    private static final String COLLISION_SOUND_NAME = "Collision";
+    private static final String COLLISION_SOUND_PATH = "sounds/" + COLLISION_SOUND_NAME + ".wav";
 
     private static final String FONT_NAME = "PressStart2P";
     private static final String FONT_PATH = "fonts/" + FONT_NAME + ".fnt";
@@ -48,6 +50,7 @@ public class AssetHelper {
     public static BitmapFont sFont;
 
     public static Sound sTeleportSound;
+    public static Sound sCollisionSound;
 
     public static Preferences sPreferences;
 
@@ -74,6 +77,7 @@ public class AssetHelper {
         sFont.getData().setScale(FONT_SIZE_SCALE, FONT_SIZE_SCALE);
 
         sTeleportSound = Gdx.audio.newSound(Gdx.files.internal(TELEPORT_SOUND_PATH));
+        sCollisionSound = Gdx.audio.newSound(Gdx.files.internal(COLLISION_SOUND_PATH));
 
         sPreferences = Gdx.app.getPreferences(GAME_NAME);
 

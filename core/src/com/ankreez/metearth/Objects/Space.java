@@ -1,17 +1,14 @@
 package com.ankreez.metearth.Objects;
 
-import com.badlogic.gdx.utils.TimeUtils;
+import com.ankreez.metearth.Helpers.AssetHelper;
 
 import java.util.Iterator;
-import java.util.Random;
 
 public class Space implements Iterable<Star> {
 
     private static final int STARS_AMOUNT = 13;
 
     private static final float STAR_RADIUS = 2.5f;
-
-    private static final Random sRandom  = new Random(TimeUtils.millis());
 
     private Star[] mStars;
 
@@ -30,8 +27,8 @@ public class Space implements Iterable<Star> {
 
     private void resetStars(float worldWidth, float worldHeight) {
         for (int idx = 0; idx < STARS_AMOUNT; ++idx) {
-            mStars[idx].setPosition(sRandom.nextFloat() * worldWidth,
-                    sRandom.nextFloat() * worldHeight);
+            mStars[idx].setPosition(AssetHelper.sRandom.nextFloat() * worldWidth,
+                    AssetHelper.sRandom.nextFloat() * worldHeight);
         }
     }
 

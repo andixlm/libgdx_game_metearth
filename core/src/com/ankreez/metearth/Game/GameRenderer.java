@@ -4,6 +4,8 @@ import com.ankreez.metearth.Helpers.AssetHelper;
 import com.ankreez.metearth.Objects.Earth;
 import com.ankreez.metearth.Objects.Meteorite;
 import com.ankreez.metearth.Objects.Portal;
+import com.ankreez.metearth.Objects.Space;
+import com.ankreez.metearth.Objects.Star;
 import com.ankreez.metearth.Objects.Wormhole;
 import com.ankreez.metearth.UI.RoundButton;
 import com.ankreez.metearth.UI.TextBox;
@@ -39,6 +41,7 @@ public class GameRenderer {
     private RoundButton mPlayButton;
     private RoundButton mReplayButton;
 
+    private Space mSpace;
     private Earth mEarth;
     private Wormhole mWormhole;
     private Array<Meteorite> mMeteorites;
@@ -51,6 +54,7 @@ public class GameRenderer {
     private TextureRegion mPlayButtonTexture;
     private TextureRegion mReplayButtonTexture;
 
+    private TextureRegion mStarTexture;
     private TextureRegion mEarthTexture;
     private TextureRegion mPortalTexture;
     private TextureRegion mMeteoriteTexture;
@@ -110,6 +114,7 @@ public class GameRenderer {
         mPlayButton = mGameWorld.getPlayButton();
         mReplayButton = mGameWorld.getReplayButton();
 
+        mSpace = mGameWorld.getSpace();
         mEarth = mGameWorld.getEarth();
         mWormhole = mGameWorld.getWormhole();
         mMeteorites = mGameWorld.getMeteorites();
@@ -125,6 +130,7 @@ public class GameRenderer {
         mPlayButtonTexture = AssetHelper.sPlayButtonTexture;
         mReplayButtonTexture = AssetHelper.sReplayButtonTexture;
 
+        mStarTexture = AssetHelper.sStarTexture;
         mEarthTexture = AssetHelper.sEarthTexture;
         mPortalTexture = AssetHelper.sPortalTexture;
         mMeteoriteTexture = AssetHelper.sMeteoriteTexture;

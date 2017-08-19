@@ -5,6 +5,9 @@ import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.utils.TimeUtils;
+
+import java.util.Random;
 
 public class AssetHelper {
 
@@ -41,6 +44,8 @@ public class AssetHelper {
     public static BitmapFont sFont;
 
     public static Preferences sPreferences;
+
+    public static final Random sRandom  = new Random(TimeUtils.millis());
 
     public static void load() {
         sTextureAtlas = new Texture(Gdx.files.internal(TEXTURE_ATLAS_PATH));

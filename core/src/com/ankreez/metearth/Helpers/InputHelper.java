@@ -73,6 +73,10 @@ public class InputHelper implements InputProcessor {
                 touchDownOnGameReady(worldX, worldY, pointer, button);
                 break;
 
+            case GAME_TUTORIAL:
+                touchDownOnGameTutorial(worldX, worldY, pointer, button);
+                break;
+
             case GAME_RUNNING:
                 touchDownOnGameRunning(worldX, worldY, pointer, button);
                 break;
@@ -111,6 +115,10 @@ public class InputHelper implements InputProcessor {
         } else if (mSoundButton.isClicked(screenX, screenY)) {
             mGameWorld.switchSoundState();
         }
+    }
+
+    private void touchDownOnGameTutorial(int screenX, int screenY, int pointer, int button) {
+        touchDownOnGameReady(screenX, screenY, pointer, button);
     }
 
     private void touchDownOnGameRunning(int screenX, int screenY, int pointer, int button) {

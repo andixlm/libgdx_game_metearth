@@ -159,6 +159,10 @@ public class GameRenderer {
                 renderOnGameReady(delta);
                 break;
 
+            case GAME_TUTORIAL:
+                renderOnGameTutorial(delta);
+                break;
+
             case GAME_RUNNING:
                 renderOnGameRunning(delta);
                 break;
@@ -189,10 +193,6 @@ public class GameRenderer {
                 mGameTitle.getX(), mGameTitle.getY(),
                 mGameTitle.getWidth(), mGameTitle.getHeight());
 
-        mSpriteRenderer.draw(mTutorialTexture,
-                mTutorial.getX(), mTutorial.getY(),
-                mTutorial.getWidth(), mTutorial.getHeight());
-
         mSpriteRenderer.draw(mAppealTexture,
                 mAppeal.getX(), mAppeal.getY(),
                 mAppeal.getWidth(), mAppeal.getHeight());
@@ -204,6 +204,18 @@ public class GameRenderer {
         mSpriteRenderer.draw(mSoundCurrentStateTexture,
                 mSoundButton.getX(), mSoundButton.getY(),
                 mSoundButton.getWidth(), mSoundButton.getHeight());
+
+        mSpriteRenderer.end();
+    }
+
+    private void renderOnGameTutorial(float delta) {
+        renderOnGameReady(delta);
+
+        mSpriteRenderer.begin();
+
+        mSpriteRenderer.draw(mTutorialTexture,
+                mTutorial.getX(), mTutorial.getY(),
+                mTutorial.getWidth(), mTutorial.getHeight());
 
         mSpriteRenderer.end();
     }

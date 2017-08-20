@@ -13,7 +13,7 @@ import com.badlogic.gdx.utils.Array;
 
 public class GameWorld {
 
-    public enum GameState { GAME_READY, GAME_RUNNING, GAME_OVER }
+    public enum GameState { GAME_READY, GAME_TUTORIAL, GAME_RUNNING, GAME_OVER }
 
     private static final byte METEORITES_AMOUNT = 7;
 
@@ -52,7 +52,12 @@ public class GameWorld {
 
         initObjects();
 
-        mGameState = GameState.GAME_READY;
+        if (!AssetHelper.getFirstRunState()) {
+            mGameState = GameState.GAME_READY;
+        } else {
+            AssetHelper.setFirstRunState(false);
+            mGameState = GameState.GAME_TUTORIAL;
+        }
     }
 
     private void initObjects() {
@@ -131,6 +136,10 @@ public class GameWorld {
                 updateOnGameReady(delta);
                 break;
 
+            case GAME_TUTORIAL:
+                updateOnGameTutorial(delta);
+                break;
+
             case GAME_RUNNING:
                 updateOnGameRunning(delta);
                 break;
@@ -149,6 +158,10 @@ public class GameWorld {
                 meteorite.reset(mWorldWidth, mWorldHeight);
             }
         }
+    }
+
+    private void updateOnGameTutorial(float delta) {
+        updateOnGameReady(delta);
     }
 
     private void updateOnGameRunning(float delta) {

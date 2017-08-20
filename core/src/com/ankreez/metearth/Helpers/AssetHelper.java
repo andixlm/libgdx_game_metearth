@@ -14,6 +14,7 @@ public class AssetHelper {
 
     public static final String GAME_NAME = "metearth";
 
+    public static final String FIRST_RUN_STATE_PREF = "com.ankreez.metearth.FIRST_RUN_STATE";
     public static final String SOUND_STATE_PREF = "com.ankreez.metearth.SOUND_STATE";
     public static final String HIGH_SCORE_PREF = "com.ankreez.metearth.HIGH_SCORE";
 
@@ -88,6 +89,11 @@ public class AssetHelper {
 
         sPreferences = Gdx.app.getPreferences(GAME_NAME);
 
+        if (!sPreferences.contains(FIRST_RUN_STATE_PREF)) {
+            sPreferences.putBoolean(FIRST_RUN_STATE_PREF, true);
+            sPreferences.flush();
+        }
+
         if (!sPreferences.contains(SOUND_STATE_PREF)) {
             sPreferences.putBoolean(SOUND_STATE_PREF, true);
             sPreferences.flush();
@@ -103,6 +109,15 @@ public class AssetHelper {
         sFont.dispose();
 
         sTextureAtlas.dispose();
+    }
+
+    public static boolean getFirstRunState() {
+        return AssetHelper.sPreferences.getBoolean(AssetHelper.FIRST_RUN_STATE_PREF);
+    }
+
+    public static void setFirstRunState(boolean state) {
+        AssetHelper.sPreferences.putBoolean(AssetHelper.FIRST_RUN_STATE_PREF, state);
+        AssetHelper.sPreferences.flush();
     }
 
     public static boolean getSoundState() {

@@ -25,6 +25,7 @@ public class GameWorld {
     private short mScore;
 
     private TextBox mGameTitle;
+    private TextBox mTutorial;
     private TextBox mAppeal;
 
     private TextBox mScoreText;
@@ -61,6 +62,12 @@ public class GameWorld {
         float gameTitlePositionY = 7.5f * mWorldHeight / 10.0f;
         mGameTitle = new TextBox(gameTitlePositionX, gameTitlePositionY,
                 gameTitleWidth, gameTitleHeight);
+
+        float tutorialWidth = mWorldWidth / 2.0f;
+        float tutorialHeight = tutorialWidth / 2.41667f;
+        float tutorialPositionX = (mWorldWidth - tutorialWidth) / 2.0f;
+        float tutorialPositionY = mWorldHeight / 4.0f - tutorialHeight;
+        mTutorial = new TextBox(tutorialPositionX, tutorialPositionY, tutorialWidth, tutorialHeight);
 
         float appealWidth = mWorldWidth / 2.0f;
         float appealHeight = appealWidth / 16.875f;
@@ -286,6 +293,10 @@ public class GameWorld {
 
     public TextBox getGameTitle() {
         return mGameTitle;
+    }
+
+    public TextBox getTutorial() {
+        return mTutorial;
     }
 
     public TextBox getAppeal() {

@@ -169,16 +169,16 @@ public class GameWorld {
                             outPortal.getX() >= portalCollided.getX() + portalCollided.getWidth() ||
                             portalCollided.getY() >= outPortal.getY() + outPortal.getHeight() ||
                             outPortal.getY() >= portalCollided.getY() + portalCollided.getHeight()) {
+                        increaseScore();
                         if (mSoundState) {
                             AssetHelper.sTeleportSound.play();
                         }
-                        increaseScore();
                     }
                 } else if (meteorite.collides(mEarth)) {
+                    stopGame();
                     if (mSoundState) {
                         AssetHelper.sCollisionSound.play();
                     }
-                    stopGame();
                 }
 
                 if (meteorite.isOutOfScreen(mWorldWidth, mWorldHeight)) {

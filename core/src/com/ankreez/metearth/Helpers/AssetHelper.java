@@ -66,7 +66,7 @@ public class AssetHelper {
         sTextureAtlas.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
 
         sGameTitleTexture = new TextureRegion(sTextureAtlas, 0, 65, 126, 14);
-        sTutorialTexture = new TextureRegion(sTextureAtlas, 0, 128, 174, 72);
+        sTutorialTexture = new TextureRegion(sTextureAtlas, 0, 128, 220, 72);
         sAppealTexture = new TextureRegion(sTextureAtlas, 0, 82, 270, 16);
         sScoreTextTexture = new TextureRegion(sTextureAtlas, 199, 65, 88, 16);
         sHighScoreTextTexture = new TextureRegion(sTextureAtlas, 127, 65, 160, 16);

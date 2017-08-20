@@ -14,6 +14,7 @@ public class AssetHelper {
 
     public static final String GAME_NAME = "MetEarth";
 
+    public static final String SOUND_STATE_PREF = "com.ankreez.metearth.SOUND_STATE";
     public static final String HIGH_SCORE_PREF = "com.ankreez.metearth.HIGH_SCORE";
 
     private static final String TEXTURE_ATLAS_NAME = "TextureAtlas";
@@ -41,6 +42,8 @@ public class AssetHelper {
 
     public static TextureRegion sPlayButtonTexture;
     public static TextureRegion sReplayButtonTexture;
+    public static TextureRegion sSoundOnButtonTexture;
+    public static TextureRegion sSoundOffButtonTexture;
 
     public static TextureRegion sStarTexture;
     public static TextureRegion sEarthTexture;
@@ -67,6 +70,8 @@ public class AssetHelper {
 
         sPlayButtonTexture = new TextureRegion(sTextureAtlas, 193, 0, 64, 64);
         sReplayButtonTexture = new TextureRegion(sTextureAtlas, 258, 0, 64, 64);
+        sSoundOnButtonTexture = new TextureRegion(sTextureAtlas, 6, 99, 28, 28);
+        sSoundOffButtonTexture = new TextureRegion(sTextureAtlas, 35, 99, 28, 28);
 
         sStarTexture = new TextureRegion(sTextureAtlas, 0, 99, 5, 5);
         sEarthTexture = new TextureRegion(sTextureAtlas, 0, 0, 64, 64);
@@ -81,6 +86,11 @@ public class AssetHelper {
 
         sPreferences = Gdx.app.getPreferences(GAME_NAME);
 
+        if (!sPreferences.contains(SOUND_STATE_PREF)) {
+            sPreferences.putBoolean(SOUND_STATE_PREF, true);
+            sPreferences.flush();
+        }
+
         if (!sPreferences.contains(HIGH_SCORE_PREF)) {
             sPreferences.putInteger(HIGH_SCORE_PREF, 0);
             sPreferences.flush();
@@ -91,6 +101,15 @@ public class AssetHelper {
         sFont.dispose();
 
         sTextureAtlas.dispose();
+    }
+
+    public static boolean getSoundState() {
+        return AssetHelper.sPreferences.getBoolean(AssetHelper.SOUND_STATE_PREF);
+    }
+
+    public static void setSoundState(boolean state) {
+        AssetHelper.sPreferences.putBoolean(AssetHelper.SOUND_STATE_PREF, state);
+        AssetHelper.sPreferences.flush();
     }
 
     public static int getHighScore() {

@@ -21,6 +21,7 @@ public class GameWorld {
     private float mWorldHeight;
 
     private GameState mGameState;
+    private boolean mSoundState;
     private short mScore;
 
     private TextBox mGameTitle;
@@ -31,6 +32,7 @@ public class GameWorld {
 
     private RoundButton mPlayButton;
     private RoundButton mReplayButton;
+    private RoundButton mSoundButton;
 
     private Space mSpace;
     private Earth mEarth;
@@ -38,11 +40,13 @@ public class GameWorld {
     private Array<Meteorite> mMeteorites;
 
     private OnGameStateChangeListener mOnGameStateChangeListener;
+    private OnSoundStateChangeListener mOnSoundStateChangeListener;
 
     public GameWorld(float worldWidth, float worldHeight) {
         mWorldWidth = worldWidth;
         mWorldHeight = worldHeight;
 
+        mSoundState = AssetHelper.getSoundState();
         mScore = 0;
 
         initObjects();
@@ -85,6 +89,13 @@ public class GameWorld {
 
         mPlayButton = new RoundButton(earthPositionX, earthPositionY, earthWidth, earthHeight);
         mReplayButton = new RoundButton(earthPositionX, earthPositionY, earthWidth, earthHeight);
+
+        float soundButtonWidth = mWorldWidth / 7.5f;
+        float soundButtonHeight = soundButtonWidth;
+        float soundButtonPositionX = mWorldWidth - soundButtonWidth;
+        float soundButtonPositionY = mWorldHeight - soundButtonHeight;
+        mSoundButton = new RoundButton(soundButtonPositionX, soundButtonPositionY,
+                soundButtonWidth, soundButtonHeight);
 
         mSpace = new Space(mWorldWidth, mWorldHeight);
 
@@ -158,11 +169,15 @@ public class GameWorld {
                             outPortal.getX() >= portalCollided.getX() + portalCollided.getWidth() ||
                             portalCollided.getY() >= outPortal.getY() + outPortal.getHeight() ||
                             outPortal.getY() >= portalCollided.getY() + portalCollided.getHeight()) {
-                        AssetHelper.sTeleportSound.play();
+                        if (mSoundState) {
+                            AssetHelper.sTeleportSound.play();
+                        }
                         increaseScore();
                     }
                 } else if (meteorite.collides(mEarth)) {
-                    AssetHelper.sCollisionSound.play();
+                    if (mSoundState) {
+                        AssetHelper.sCollisionSound.play();
+                    }
                     stopGame();
                 }
 
@@ -175,6 +190,11 @@ public class GameWorld {
 
     private void updateOnGameOver(float delta) {
 
+    }
+
+    public void switchSoundState() {
+        mSoundState = !mSoundState;
+        mOnSoundStateChangeListener.onSoundStateChange(mSoundState);
     }
 
     public boolean isGameReady() {
@@ -245,6 +265,15 @@ public class GameWorld {
         return mWorldHeight;
     }
 
+    public boolean getSoundState() {
+        return mSoundState;
+    }
+
+    public void setSoundState(boolean state) {
+        mSoundState = state;
+        mOnSoundStateChangeListener.onSoundStateChange(mSoundState);
+    }
+
     public short getScore() {
         return mScore;
     }
@@ -277,6 +306,10 @@ public class GameWorld {
         return mReplayButton;
     }
 
+    public RoundButton getSoundButton() {
+        return mSoundButton;
+    }
+
     public Space getSpace() {
         return mSpace;
     }
@@ -305,9 +338,23 @@ public class GameWorld {
         mOnGameStateChangeListener = listener;
     }
 
+    public OnSoundStateChangeListener getOnSoundStateChangeListener() {
+        return mOnSoundStateChangeListener;
+    }
+
+    public void setOnSoundStateChangeListener(OnSoundStateChangeListener listener) {
+        mOnSoundStateChangeListener = listener;
+    }
+
     public interface OnGameStateChangeListener {
 
         public void onGameStateChange(GameWorld.GameState gameState);
+
+    }
+
+    public interface OnSoundStateChangeListener {
+
+        public void onSoundStateChange(boolean state);
 
     }
 

@@ -16,6 +16,7 @@ public class InputHelper implements InputProcessor {
 
     private RoundButton mPlayButton;
     private RoundButton mReplayButton;
+    private RoundButton mSoundButton;
 
     private Portal mPortal;
     private float mPortalHalfWidth;
@@ -33,6 +34,7 @@ public class InputHelper implements InputProcessor {
 
         mPlayButton = mGameWorld.getPlayButton();
         mReplayButton = mGameWorld.getReplayButton();
+        mSoundButton = mGameWorld.getSoundButton();
 
         mPortal = mGameWorld.getWormhole().getAlphaPortal();
         mPortalHalfWidth = mPortal.getWidth() / 2.0f;
@@ -106,6 +108,8 @@ public class InputHelper implements InputProcessor {
     private void touchDownOnGameReady(int screenX, int screenY, int pointer, int button) {
         if (mPlayButton.isClicked(screenX, screenY)) {
             mGameWorld.startGame();
+        } else if (mSoundButton.isClicked(screenX, screenY)) {
+            mGameWorld.switchSoundState();
         }
     }
 
@@ -117,6 +121,8 @@ public class InputHelper implements InputProcessor {
     private void touchDownOnGameOver(int screenX, int screenY, int pointer, int button) {
         if (mReplayButton.isClicked(screenX, screenY)) {
             mGameWorld.restartGame();
+        } else if (mSoundButton.isClicked(screenX, screenY)) {
+            mGameWorld.switchSoundState();
         }
     }
 

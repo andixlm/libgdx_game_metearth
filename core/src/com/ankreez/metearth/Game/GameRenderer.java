@@ -40,6 +40,7 @@ public class GameRenderer {
 
     private RoundButton mPlayButton;
     private RoundButton mReplayButton;
+    private RoundButton mSoundButton;
 
     private Space mSpace;
     private Earth mEarth;
@@ -53,6 +54,10 @@ public class GameRenderer {
 
     private TextureRegion mPlayButtonTexture;
     private TextureRegion mReplayButtonTexture;
+
+    private TextureRegion mSoundCurrentStateTexture;
+    private TextureRegion mSoundOnButtonTexture;
+    private TextureRegion mSoundOffButtonTexture;
 
     private TextureRegion mStarTexture;
     private TextureRegion mEarthTexture;
@@ -75,11 +80,17 @@ public class GameRenderer {
         initObjects();
         initAssets();
 
+        updateSoundState(mGameWorld.getSoundState());
+
         mCamera = new OrthographicCamera();
         mCamera.setToOrtho(false, mWorldWidth, mWorldHeight);
 
         mSpriteRenderer = new SpriteBatch();
         mSpriteRenderer.setProjectionMatrix(mCamera.combined);
+    }
+
+    public void updateSoundState(boolean state) {
+        mSoundCurrentStateTexture = state ? mSoundOnButtonTexture : mSoundOffButtonTexture;
     }
 
     private void initScore() {
@@ -113,6 +124,7 @@ public class GameRenderer {
 
         mPlayButton = mGameWorld.getPlayButton();
         mReplayButton = mGameWorld.getReplayButton();
+        mSoundButton = mGameWorld.getSoundButton();
 
         mSpace = mGameWorld.getSpace();
         mEarth = mGameWorld.getEarth();
@@ -129,6 +141,8 @@ public class GameRenderer {
 
         mPlayButtonTexture = AssetHelper.sPlayButtonTexture;
         mReplayButtonTexture = AssetHelper.sReplayButtonTexture;
+        mSoundOnButtonTexture = AssetHelper.sSoundOnButtonTexture;
+        mSoundOffButtonTexture = AssetHelper.sSoundOffButtonTexture;
 
         mStarTexture = AssetHelper.sStarTexture;
         mEarthTexture = AssetHelper.sEarthTexture;
@@ -182,6 +196,10 @@ public class GameRenderer {
         mSpriteRenderer.draw(mPlayButtonTexture,
                 mPlayButton.getX(), mPlayButton.getY(),
                 mPlayButton.getWidth(), mPlayButton.getHeight());
+
+        mSpriteRenderer.draw(mSoundCurrentStateTexture,
+                mSoundButton.getX(), mSoundButton.getY(),
+                mSoundButton.getWidth(), mSoundButton.getHeight());
 
         mSpriteRenderer.end();
     }
@@ -247,6 +265,10 @@ public class GameRenderer {
         mSpriteRenderer.draw(mReplayButtonTexture,
                 mReplayButton.getX(), mReplayButton.getY(),
                 mReplayButton.getWidth(), mReplayButton.getHeight());
+
+        mSpriteRenderer.draw(mSoundCurrentStateTexture,
+                mSoundButton.getX(), mSoundButton.getY(),
+                mSoundButton.getWidth(), mSoundButton.getHeight());
 
         mSpriteRenderer.end();
     }

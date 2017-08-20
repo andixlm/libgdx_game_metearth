@@ -2,6 +2,7 @@ package com.ankreez.metearth.Screens;
 
 import com.ankreez.metearth.Game.GameRenderer;
 import com.ankreez.metearth.Game.GameWorld;
+import com.ankreez.metearth.Helpers.AssetHelper;
 import com.ankreez.metearth.Helpers.InputHelper;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -31,6 +32,15 @@ public class GameScreen extends SimpleScreen {
 
                 mGameRenderer.setGameState(gameState);
                 mInputHelper.setGameState(gameState);
+            }
+
+        });
+        mGameWorld.setOnSoundStateChangeListener(new GameWorld.OnSoundStateChangeListener() {
+
+            @Override
+            public void onSoundStateChange(boolean state) {
+                AssetHelper.setSoundState(state);
+                mGameRenderer.updateSoundState(state);
             }
 
         });

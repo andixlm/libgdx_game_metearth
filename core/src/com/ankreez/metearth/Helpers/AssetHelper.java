@@ -12,7 +12,7 @@ import java.util.Random;
 
 public class AssetHelper {
 
-    public static final String GAME_NAME = "MetEarth";
+    public static final String GAME_NAME = "metearth";
 
     public static final String SOUND_STATE_PREF = "com.ankreez.metearth.SOUND_STATE";
     public static final String HIGH_SCORE_PREF = "com.ankreez.metearth.HIGH_SCORE";

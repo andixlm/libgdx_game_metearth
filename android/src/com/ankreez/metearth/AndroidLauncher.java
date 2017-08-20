@@ -43,7 +43,7 @@ public class AndroidLauncher extends AndroidApplication {
         mGameLayout.addView(mAdView,
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
-        mGameView = initializeForView(new MetEarthGame(), config);
+        mGameView = initializeForView(new MetearthGame(), config);
         mGameLayout.addView(mGameView, new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f
         ));

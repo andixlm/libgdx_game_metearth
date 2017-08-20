@@ -4,7 +4,7 @@ import com.ankreez.metearth.Helpers.AssetHelper;
 import com.ankreez.metearth.Screens.GameScreen;
 import com.badlogic.gdx.Game;
 
-public class MetEarthGame extends Game {
+public class MetearthGame extends Game {
 
     @Override
     public void create() {

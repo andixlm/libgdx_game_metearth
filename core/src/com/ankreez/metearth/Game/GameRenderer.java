@@ -246,7 +246,7 @@ public class GameRenderer {
 
         AssetHelper.sFont.draw(mSpriteRenderer, mScoreString,
                 mScoreText.getX() + 6.5f * mScoreText.getWidth() / 6.0f,
-                mScoreText.getY() + mScoreText.getHeight() / 1.45f);
+                mScoreText.getY() + 0.7f * mScoreText.getHeight());
 
         mSpriteRenderer.draw(mHighScoreTextTexture,
                 mHighScoreText.getX(), mHighScoreText.getY(),
@@ -254,7 +254,7 @@ public class GameRenderer {
 
         AssetHelper.sFont.draw(mSpriteRenderer, mHighScoreString,
                 mHighScoreText.getX() + 11.5f * mHighScoreText.getWidth() / 11.0f,
-                mHighScoreText.getY() + mHighScoreText.getHeight() / 1.45f);
+                mHighScoreText.getY() + 0.7f * mHighScoreText.getHeight());
 
         mSpriteRenderer.draw(mReplayButtonTexture,
                 mReplayButton.getX(), mReplayButton.getY(),

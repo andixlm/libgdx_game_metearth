@@ -33,6 +33,7 @@ public class GameRenderer {
     private String mHighScoreString;
 
     private TextBox mGameTitle;
+    private TextBox mTutorial;
     private TextBox mAppeal;
 
     private TextBox mScoreText;
@@ -49,6 +50,7 @@ public class GameRenderer {
 
     private TextureRegion mGameTitleTexture;
     private TextureRegion mAppealTexture;
+    private TextureRegion mTutorialTexture;
     private TextureRegion mScoreTextTexture;
     private TextureRegion mHighScoreTextTexture;
 
@@ -113,6 +115,7 @@ public class GameRenderer {
 
     private void initObjects() {
         mGameTitle = mGameWorld.getGameTitle();
+        mTutorial = mGameWorld.getTutorial();
         mAppeal = mGameWorld.getAppeal();
 
         mScoreText = mGameWorld.getScoreText();
@@ -130,6 +133,7 @@ public class GameRenderer {
 
     private void initAssets() {
         mGameTitleTexture = AssetHelper.sGameTitleTexture;
+        mTutorialTexture = AssetHelper.sTutorialTexture;
         mAppealTexture = AssetHelper.sAppealTexture;
 
         mScoreTextTexture = AssetHelper.sScoreTextTexture;
@@ -184,6 +188,10 @@ public class GameRenderer {
         mSpriteRenderer.draw(mGameTitleTexture,
                 mGameTitle.getX(), mGameTitle.getY(),
                 mGameTitle.getWidth(), mGameTitle.getHeight());
+
+        mSpriteRenderer.draw(mTutorialTexture,
+                mTutorial.getX(), mTutorial.getY(),
+                mTutorial.getWidth(), mTutorial.getHeight());
 
         mSpriteRenderer.draw(mAppealTexture,
                 mAppeal.getX(), mAppeal.getY(),

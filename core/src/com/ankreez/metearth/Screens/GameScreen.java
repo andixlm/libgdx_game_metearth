@@ -44,6 +44,14 @@ public class GameScreen extends SimpleScreen {
             }
 
         });
+        mGameWorld.setOnScoreChangeListener(new GameWorld.OnScoreChangeListener() {
+
+            @Override
+            public void onScoreChange(short score) {
+                mGameRenderer.updateScore(score);
+            }
+
+        });
 
         mGameRenderer = new GameRenderer(mGameWorld);
 

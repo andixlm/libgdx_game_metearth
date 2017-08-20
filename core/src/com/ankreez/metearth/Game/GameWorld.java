@@ -41,13 +41,13 @@ public class GameWorld {
 
     private OnGameStateChangeListener mOnGameStateChangeListener;
     private OnSoundStateChangeListener mOnSoundStateChangeListener;
+    private OnScoreChangeListener mOnScoreChangeListener;
 
     public GameWorld(float worldWidth, float worldHeight) {
         mWorldWidth = worldWidth;
         mWorldHeight = worldHeight;
 
         mSoundState = AssetHelper.getSoundState();
-        mScore = 0;
 
         initObjects();
 
@@ -209,6 +209,8 @@ public class GameWorld {
         mGameState = GameState.GAME_RUNNING;
 
         mOnGameStateChangeListener.onGameStateChange(mGameState);
+
+        mOnScoreChangeListener.onScoreChange(mScore = 0);
     }
 
     public boolean isGameRunning() {
@@ -226,7 +228,7 @@ public class GameWorld {
     }
 
     public void restartGame() {
-        mScore = 0;
+        mOnScoreChangeListener.onScoreChange(mScore = 0);
 
         mWormhole.onRestart();
 
@@ -240,7 +242,7 @@ public class GameWorld {
     }
 
     public void increaseScore() {
-        ++mScore;
+        mOnScoreChangeListener.onScoreChange(++mScore);
     }
 
     public void updateHighScore() {
@@ -346,6 +348,14 @@ public class GameWorld {
         mOnSoundStateChangeListener = listener;
     }
 
+    public OnScoreChangeListener getOnScoreChangeListener() {
+        return mOnScoreChangeListener;
+    }
+
+    public void setOnScoreChangeListener(OnScoreChangeListener listener) {
+        mOnScoreChangeListener = listener;
+    }
+
     public interface OnGameStateChangeListener {
 
         public void onGameStateChange(GameWorld.GameState gameState);
@@ -355,6 +365,12 @@ public class GameWorld {
     public interface OnSoundStateChangeListener {
 
         public void onSoundStateChange(boolean state);
+
+    }
+
+    public interface OnScoreChangeListener {
+
+        public void onScoreChange(short score);
 
     }
 

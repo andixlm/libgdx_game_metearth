@@ -101,13 +101,9 @@ public class GameRenderer {
         mHighScoreString = "";
     }
 
-    private void updateScore() {
-        short currentScore = mGameWorld.getScore();
-
-        if (mScore != currentScore) {
-            mScore = currentScore;
-            mScoreString = String.valueOf(mScore);
-        }
+    public void updateScore(short score) {
+        mScore = score;
+        mScoreString = String.valueOf(mScore);
     }
 
     public void updateHighScore() {
@@ -205,8 +201,6 @@ public class GameRenderer {
     }
 
     private void renderOnGameRunning(float delta) {
-        updateScore();
-
         mSpriteRenderer.begin();
 
         for (Star star : mSpace) {

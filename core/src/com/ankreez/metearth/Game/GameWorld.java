@@ -92,8 +92,8 @@ public class GameWorld {
 
         float soundButtonWidth = mWorldWidth / 7.5f;
         float soundButtonHeight = soundButtonWidth;
-        float soundButtonPositionX = mWorldWidth - soundButtonWidth;
-        float soundButtonPositionY = mWorldHeight - soundButtonHeight;
+        float soundButtonPositionX = mWorldWidth - 9.0f * soundButtonWidth / 8.0f;
+        float soundButtonPositionY = mWorldHeight - 9.0f * soundButtonHeight / 8.0f;
         mSoundButton = new RoundButton(soundButtonPositionX, soundButtonPositionY,
                 soundButtonWidth, soundButtonHeight);
 
